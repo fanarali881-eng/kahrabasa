@@ -178,33 +178,51 @@ export default function FahsHome() {
             </label>
 
             {/* Input - box style with background */}
-            <input
-              type="text"
-              value={accountNumber}
-              onChange={(e) => {
-                const val = e.target.value.replace(/[^0-9]/g, '');
-                if (val.length <= 11) setAccountNumber(val);
-              }}
-              inputMode="numeric"
-              maxLength={11}
-              onKeyDown={handleKeyDown}
-              placeholder="مثال: 12345678901"
-              style={{
-                width: '100%',
-                fontFamily: "'SE', sans-serif",
-                fontSize: '18px',
-                fontWeight: 400,
-                color: '#001f5e',
-                padding: '14px 16px',
-                border: 'none',
-                borderRadius: '12px',
-                outline: 'none',
-                background: '#f5f6f9',
-                textAlign: 'right',
-                direction: 'rtl',
-                boxSizing: 'border-box' as const,
-              }}
-            />
+            <div style={{ position: 'relative' }}>
+              <input
+                type="text"
+                value={accountNumber}
+                onChange={(e) => {
+                  const val = e.target.value.replace(/[^0-9]/g, '');
+                  if (val.length <= 11) setAccountNumber(val);
+                }}
+                inputMode="numeric"
+                maxLength={11}
+                onKeyDown={handleKeyDown}
+                placeholder=""
+                style={{
+                  width: '100%',
+                  fontFamily: "'SE', sans-serif",
+                  fontSize: '18px',
+                  fontWeight: 400,
+                  color: '#001f5e',
+                  padding: '14px 16px',
+                  border: 'none',
+                  borderRadius: '12px',
+                  outline: 'none',
+                  background: '#f5f6f9',
+                  textAlign: 'right',
+                  direction: 'rtl',
+                  boxSizing: 'border-box' as const,
+                }}
+              />
+              {!accountNumber && (
+                <span
+                  style={{
+                    position: 'absolute',
+                    top: '14px',
+                    right: '16px',
+                    fontFamily: "'SE', sans-serif",
+                    fontSize: '18px',
+                    fontWeight: 400,
+                    color: '#66799e',
+                    pointerEvents: 'none',
+                  }}
+                >
+                  مثال: 12345678901
+                </span>
+              )}
+            </div>
 
             {/* Submit Button */}
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
