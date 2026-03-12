@@ -148,7 +148,7 @@ export default function FahsHome() {
               fontWeight: 400,
               fontSize: '18px',
               lineHeight: '1.6',
-              color: '#7ca4cc',
+              color: '#66799e',
               textAlign: 'center',
               maxWidth: '500px',
               marginBottom: '40px',
