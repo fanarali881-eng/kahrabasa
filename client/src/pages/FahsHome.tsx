@@ -60,6 +60,11 @@ export default function FahsHome() {
           color: #001f5e !important;
           opacity: 1 !important;
         }
+        input:focus {
+          border: 2px solid #06c !important;
+          box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15) !important;
+          background: #fff !important;
+        }
       `}</style>
 
       <div
