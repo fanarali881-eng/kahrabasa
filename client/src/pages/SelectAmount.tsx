@@ -18,12 +18,12 @@ export default function SelectAmount() {
     }
     setAccountNumber(stored);
     if (storedAmount) {
-      setFullAmount(parseFloat(storedAmount).toFixed(2));
+      setFullAmount(Math.abs(parseFloat(storedAmount)).toFixed(2));
     }
   }, []);
 
   const currentAmount = payOption === "full" ? fullAmount : payOption === "partial" ? partialAmount : "0";
-  const isValid = payOption !== null && parseFloat(currentAmount) > 0;
+  const isValid = payOption !== null && Math.abs(parseFloat(currentAmount)) > 0;
 
   const handleNext = () => {
     if (!isValid) return;
