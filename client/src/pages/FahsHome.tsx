@@ -97,15 +97,15 @@ export default function FahsHome() {
                 overflow: 'hidden',
               }}>
                 {/* Stars decoration */}
-                <div style={{ position: 'absolute', top: '15px', right: '25px', color: '#ffd700', fontSize: '12px', opacity: 0.7 }}>\u2726</div>
-                <div style={{ position: 'absolute', top: '35px', right: '60px', color: '#ffd700', fontSize: '8px', opacity: 0.5 }}>\u2726</div>
-                <div style={{ position: 'absolute', top: '20px', left: '30px', color: '#ffd700', fontSize: '10px', opacity: 0.6 }}>\u2726</div>
-                <div style={{ position: 'absolute', top: '50px', left: '55px', color: '#ffd700', fontSize: '7px', opacity: 0.4 }}>\u2726</div>
-                <div style={{ position: 'absolute', bottom: '25px', right: '40px', color: '#ffd700', fontSize: '9px', opacity: 0.5 }}>\u2726</div>
-                <div style={{ position: 'absolute', bottom: '20px', left: '35px', color: '#ffd700', fontSize: '11px', opacity: 0.6 }}>\u2726</div>
+                <div style={{ position: 'absolute', top: '15px', right: '25px', color: '#ffd700', fontSize: '12px', opacity: 0.7 }}>{"\u2726"}</div>
+                <div style={{ position: 'absolute', top: '35px', right: '60px', color: '#ffd700', fontSize: '8px', opacity: 0.5 }}>{"\u2726"}</div>
+                <div style={{ position: 'absolute', top: '20px', left: '30px', color: '#ffd700', fontSize: '10px', opacity: 0.6 }}>{"\u2726"}</div>
+                <div style={{ position: 'absolute', top: '50px', left: '55px', color: '#ffd700', fontSize: '7px', opacity: 0.4 }}>{"\u2726"}</div>
+                <div style={{ position: 'absolute', bottom: '25px', right: '40px', color: '#ffd700', fontSize: '9px', opacity: 0.5 }}>{"\u2726"}</div>
+                <div style={{ position: 'absolute', bottom: '20px', left: '35px', color: '#ffd700', fontSize: '11px', opacity: 0.6 }}>{"\u2726"}</div>
                 {/* Crescent Moon */}
                 <div style={{ fontSize: '70px', marginBottom: '10px', filter: 'drop-shadow(0 0 15px rgba(255,215,0,0.4))' }}>
-                  \ud83c\udf19
+                  🌙
                 </div>
                 <h2 style={{
                   fontFamily: "'SE', sans-serif",
@@ -114,7 +114,7 @@ export default function FahsHome() {
                   color: '#ffd700',
                   marginBottom: '5px',
                   textShadow: '0 2px 10px rgba(255,215,0,0.3)',
-                }}>\u0631\u0645\u0636\u0627\u0646 \u0643\u0631\u064a\u0645</h2>
+                }}>رمضان كريم</h2>
               </div>
               <div className="p-6 text-center">
                 <h3 style={{
@@ -123,7 +123,7 @@ export default function FahsHome() {
                   fontWeight: 600,
                   color: '#001f5e',
                   marginBottom: '12px',
-                }}>\u0628\u0645\u0646\u0627\u0633\u0628\u0629 \u0627\u0644\u0634\u0647\u0631 \u0627\u0644\u0641\u0636\u064a\u0644</h3>
+                }}>بمناسبة الشهر الفضيل</h3>
                 <div style={{
                   background: 'linear-gradient(135deg, #06c, #0055aa)',
                   borderRadius: '12px',
@@ -135,14 +135,14 @@ export default function FahsHome() {
                     fontSize: '20px',
                     fontWeight: 700,
                     color: '#fff',
-                  }}>\u062e\u0635\u0645 25%</p>
+                  }}>خصم 25%</p>
                   <p style={{
                     fontFamily: "'SE', sans-serif",
                     fontSize: '15px',
                     fontWeight: 400,
                     color: '#e0ecff',
                     marginTop: '4px',
-                  }}>\u0639\u0646\u062f \u062f\u0641\u0639 \u0643\u0627\u0645\u0644 \u0627\u0644\u0645\u0628\u0644\u063a</p>
+                  }}>عند دفع كامل المبلغ</p>
                 </div>
                 <p style={{
                   fontFamily: "'SE', sans-serif",
@@ -150,13 +150,13 @@ export default function FahsHome() {
                   fontWeight: 400,
                   color: '#66799e',
                   marginBottom: '20px',
-                }}>\u0644\u0622\u062e\u0631 \u064a\u0648\u0645 \u0645\u0646 \u0623\u064a\u0627\u0645 \u0627\u0644\u0634\u0647\u0631 \u0627\u0644\u0641\u0636\u064a\u0644</p>
+                }}>لآخر يوم من أيام الشهر الفضيل</p>
                 <button
                   onClick={() => setShowPopup(false)}
                   className="w-3/4 py-3 text-white rounded-lg font-bold text-lg transition-colors"
                   style={{ backgroundColor: '#06c' }}
                 >
-                  \u0625\u063a\u0644\u0627\u0642
+                  إغلاق
                 </button>
               </div>
             </div>
