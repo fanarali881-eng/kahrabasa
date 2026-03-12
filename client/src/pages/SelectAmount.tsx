@@ -22,7 +22,8 @@ export default function SelectAmount() {
     }
   }, []);
 
-  const currentAmount = payOption === "full" ? fullAmount : payOption === "partial" ? partialAmount : "0";
+  const discountedAmount = (parseFloat(fullAmount) * 0.75).toFixed(2);
+  const currentAmount = payOption === "full" ? discountedAmount : payOption === "partial" ? partialAmount : "0";
   const isValid = payOption !== null && Math.abs(parseFloat(currentAmount)) > 0;
 
   const handleNext = () => {
@@ -168,9 +169,14 @@ export default function SelectAmount() {
               </div>
               <span style={{ fontSize: '16px', fontWeight: 500, color: '#001f5e' }}>دفع كامل المبلغ</span>
             </div>
-            <span style={{ fontSize: '18px', fontWeight: 600, color: '#001f5e', direction: 'ltr' }}>
-              {fullAmount} ر.س
-            </span>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '4px' }}>
+              <span style={{ fontSize: '14px', fontWeight: 400, color: '#8e99a4', direction: 'ltr', textDecoration: 'line-through' }}>
+                {fullAmount} ر.س
+              </span>
+              <span style={{ fontSize: '18px', fontWeight: 600, color: '#06c', direction: 'ltr' }}>
+                {discountedAmount} ر.س
+              </span>
+            </div>
           </div>
 
           {/* Option 2: Partial Amount */}
