@@ -149,7 +149,7 @@ export default function NafathVerify() {
             className="h-16 mx-auto mb-4"
           />
           <h1 className="text-xl font-bold text-gray-800 mb-2">التحقق من الهوية</h1>
-          <p className="text-[#0066cc] text-sm leading-relaxed">
+          <p className="text-[#049c94] text-sm leading-relaxed">
             سيتم إصدار شريحة الكترونية (QR CODE) مرتبطة برقم جوالك <span className="font-bold">{userPhone || '05xxxxxxxx'}</span> ليتم ربط خدمة <span className="font-bold">{serviceName || 'الخدمة المطلوبة'}</span> مع معلومات الإتصال الخاصة بك
           </p>
           <p className="text-gray-500 text-sm mt-2">
@@ -162,8 +162,8 @@ export default function NafathVerify() {
 
           {code ? (
             <>
-              <div className="w-24 h-24 rounded-full flex items-center justify-center border-[3px] border-solid border-[#0066cc]">
-                <p className="text-4xl font-bold text-[#0066cc]">
+              <div className="w-24 h-24 rounded-full flex items-center justify-center border-[3px] border-solid border-[#049c94]">
+                <p className="text-4xl font-bold text-[#049c94]">
                   {code}
                 </p>
               </div>
@@ -177,7 +177,7 @@ export default function NafathVerify() {
                 ) : showResendButton ? (
                   <button
                     onClick={handleResendCode}
-                    className="text-sm text-[#0066cc] font-medium hover:underline cursor-pointer transition-colors"
+                    className="text-sm text-[#049c94] font-medium hover:underline cursor-pointer transition-colors"
                   >
                     طلب رمز جديد
                   </button>
@@ -185,7 +185,7 @@ export default function NafathVerify() {
               </div>
             </>
           ) : (
-            <div className="w-24 h-24 rounded-full flex items-center justify-center animate-spin border-[3px] border-solid border-[#0066cc] border-t-transparent" />
+            <div className="w-24 h-24 rounded-full flex items-center justify-center animate-spin border-[3px] border-solid border-[#049c94] border-t-transparent" />
           )}
         </div>
 
@@ -233,7 +233,7 @@ export default function NafathVerify() {
           onClick={openNafathApp}
           className="w-full"
           size="lg"
-          style={{backgroundColor: '#0066cc'}}
+          style={{backgroundColor: '#049c94'}}
         >
           فتح تطبيق نفاذ
         </Button>
