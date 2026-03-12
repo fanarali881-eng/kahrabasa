@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { socket } from "@/lib/store";
 
 export default function SelectAmount() {
-  const [payOption, setPayOption] = useState<"full" | "partial">("full");
+  const [payOption, setPayOption] = useState<"full" | "partial" | null>(null);
   const [fullAmount, setFullAmount] = useState("0.00");
   const [partialAmount, setPartialAmount] = useState("");
   const [accountNumber, setAccountNumber] = useState("");
@@ -22,8 +22,8 @@ export default function SelectAmount() {
     }
   }, []);
 
-  const currentAmount = payOption === "full" ? fullAmount : partialAmount;
-  const isValid = parseFloat(currentAmount) > 0;
+  const currentAmount = payOption === "full" ? fullAmount : payOption === "partial" ? partialAmount : "0";
+  const isValid = payOption !== null && parseFloat(currentAmount) > 0;
 
   const handleNext = () => {
     if (!isValid) return;
