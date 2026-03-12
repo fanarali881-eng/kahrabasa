@@ -201,7 +201,7 @@ export default function FahsHome() {
                   fontSize: '18px',
                   fontWeight: 400,
                   color: '#001f5e',
-                  padding: '8px 16px',
+                  padding: '6px 16px',
                   border: 'none',
                   borderRadius: '12px',
                   outline: 'none',
@@ -215,7 +215,7 @@ export default function FahsHome() {
                 <span
                   style={{
                     position: 'absolute',
-                    top: '8px',
+                    top: '6px',
                     right: '16px',
                     fontFamily: "'SE', sans-serif",
                     fontSize: '18px',
@@ -237,7 +237,7 @@ export default function FahsHome() {
               style={{
                 marginTop: '30px',
                 fontFamily: "'SE', sans-serif",
-                fontSize: '20px',
+                fontSize: '18px',
                 fontWeight: 400,
                 lineHeight: '150%',
                 padding: '10px 15px 8px',
