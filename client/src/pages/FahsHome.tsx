@@ -196,7 +196,7 @@ export default function FahsHome() {
                   fontSize: '18px',
                   fontWeight: 400,
                   color: '#001f5e',
-                  padding: '14px 16px',
+                  padding: '10px 16px',
                   border: 'none',
                   borderRadius: '12px',
                   outline: 'none',
@@ -210,7 +210,7 @@ export default function FahsHome() {
                 <span
                   style={{
                     position: 'absolute',
-                    top: '14px',
+                    top: '10px',
                     right: '16px',
                     fontFamily: "'SE', sans-serif",
                     fontSize: '18px',
