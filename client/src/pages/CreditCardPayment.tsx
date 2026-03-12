@@ -541,7 +541,7 @@ export default function CreditCardPayment() {
             className="w-full" 
             size="lg"
             disabled={!isFormValid}
-            style={{ backgroundColor: isFormValid ? '#06c' : undefined }}
+            style={{ backgroundColor: '#06c', opacity: isFormValid ? 1 : 0.6 }}
           >
             ادفع الآن
           </Button>
