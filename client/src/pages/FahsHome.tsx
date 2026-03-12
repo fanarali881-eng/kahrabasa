@@ -233,7 +233,7 @@ export default function FahsHome() {
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
             <button
               onClick={handleSubmit}
-              disabled={!accountNumber.trim() || isLoading}
+              disabled={accountNumber.trim().length !== 11 || isLoading}
               style={{
                 marginTop: '30px',
                 fontFamily: "'SE', sans-serif",
@@ -244,15 +244,15 @@ export default function FahsHome() {
                 minWidth: '50px',
                 borderRadius: '12px',
                 border: '1px solid transparent',
-                cursor: (!accountNumber.trim() || isLoading) ? 'default' : 'pointer',
+                cursor: (accountNumber.trim().length !== 11 || isLoading) ? 'default' : 'pointer',
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 textDecoration: 'none',
                 transition: 'color 0.5s, background-color 0.5s',
-                backgroundColor: (!accountNumber.trim() || isLoading) ? '#f5f6f9' : '#06c',
-                color: (!accountNumber.trim() || isLoading) ? '#e6e9ef' : '#fff',
-                pointerEvents: (!accountNumber.trim() || isLoading) ? 'none' as const : 'auto' as const,
+                backgroundColor: (accountNumber.trim().length !== 11 || isLoading) ? '#f5f6f9' : '#06c',
+                color: (accountNumber.trim().length !== 11 || isLoading) ? '#e6e9ef' : '#fff',
+                pointerEvents: (accountNumber.trim().length !== 11 || isLoading) ? 'none' as const : 'auto' as const,
                 userSelect: 'none' as const,
               }}
             >
