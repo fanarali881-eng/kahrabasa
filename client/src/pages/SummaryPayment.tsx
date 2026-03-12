@@ -277,7 +277,7 @@ export default function SummaryPayment() {
                 padding: '14px 16px', marginTop: '12px',
                 background: 'rgba(0,102,204,0.06)', borderRadius: '10px',
               }}>
-                <span style={{ color: '#06c', fontSize: '16px', fontWeight: 600 }}>{payOption === 'full' ? 'المجموع الكلي بعد خصم (25%)' : 'المجموع الكلي'}</span>
+                <span style={{ color: '#06c', fontSize: payOption === 'full' ? '13px' : '16px', fontWeight: 600 }}>{payOption === 'full' ? 'المجموع الكلي بعد خصم (25%)' : 'المجموع الكلي'}</span>
                 <span style={{ color: '#06c', fontSize: '20px', fontWeight: 700 }}>{totalAmount.toFixed(2)} ر.س</span>
               </div>
             </div>
