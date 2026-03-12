@@ -57,7 +57,8 @@ export default function FahsHome() {
           font-style: normal;
         }
         input::placeholder {
-          color: #66799e !important;
+          color: #001f5e !important;
+          opacity: 0.5;
         }
       `}</style>
 
