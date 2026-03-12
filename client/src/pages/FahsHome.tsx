@@ -77,6 +77,10 @@ export default function FahsHome() {
           box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15) !important;
           background: #fff !important;
         }
+        @keyframes popupFadeIn {
+          from { opacity: 0; transform: scale(0.9) translateY(20px); }
+          to { opacity: 1; transform: scale(1) translateY(0); }
+        }
       `}</style>
 
       <div
@@ -86,75 +90,91 @@ export default function FahsHome() {
       >
         {/* Ramadan Popup */}
         {showPopup && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50" onClick={() => setShowPopup(false)}>
-            <div className="bg-white rounded-2xl shadow-2xl max-w-sm w-[90%] mx-auto overflow-hidden" onClick={(e) => e.stopPropagation()}>
-              {/* Ramadan Header with Crescent */}
-              <div style={{
-                background: 'linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0d2137 100%)',
-                padding: '40px 20px',
-                textAlign: 'center',
-                position: 'relative',
-                overflow: 'hidden',
-              }}>
-                {/* Stars decoration */}
-                <div style={{ position: 'absolute', top: '15px', right: '25px', color: '#ffd700', fontSize: '12px', opacity: 0.7 }}>{"\u2726"}</div>
-                <div style={{ position: 'absolute', top: '35px', right: '60px', color: '#ffd700', fontSize: '8px', opacity: 0.5 }}>{"\u2726"}</div>
-                <div style={{ position: 'absolute', top: '20px', left: '30px', color: '#ffd700', fontSize: '10px', opacity: 0.6 }}>{"\u2726"}</div>
-                <div style={{ position: 'absolute', top: '50px', left: '55px', color: '#ffd700', fontSize: '7px', opacity: 0.4 }}>{"\u2726"}</div>
-                <div style={{ position: 'absolute', bottom: '25px', right: '40px', color: '#ffd700', fontSize: '9px', opacity: 0.5 }}>{"\u2726"}</div>
-                <div style={{ position: 'absolute', bottom: '20px', left: '35px', color: '#ffd700', fontSize: '11px', opacity: 0.6 }}>{"\u2726"}</div>
-                {/* Crescent Moon */}
-                <div style={{ fontSize: '70px', marginBottom: '10px', filter: 'drop-shadow(0 0 15px rgba(255,215,0,0.4))' }}>
-                  🌙
-                </div>
-                <h2 style={{
-                  fontFamily: "'SE', sans-serif",
-                  fontSize: '28px',
-                  fontWeight: 700,
-                  color: '#ffd700',
-                  marginBottom: '5px',
-                  textShadow: '0 2px 10px rgba(255,215,0,0.3)',
-                }}>رمضان كريم</h2>
+          <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ backgroundColor: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)' }} onClick={() => setShowPopup(false)}>
+            <div style={{
+              background: '#fff',
+              borderRadius: '20px',
+              boxShadow: '0 25px 60px rgba(0,0,0,0.3)',
+              maxWidth: '400px',
+              width: '90%',
+              margin: '0 auto',
+              overflow: 'hidden',
+              animation: 'popupFadeIn 0.4s ease-out',
+            }} onClick={(e) => e.stopPropagation()}>
+              {/* Ramadan Image Header */}
+              <div style={{ position: 'relative' }}>
+                <img src="/images/ramadan-header.png" alt="رمضان كريم" style={{ width: '100%', display: 'block', height: '200px', objectFit: 'cover' }} />
               </div>
-              <div className="p-6 text-center">
+
+              {/* Content */}
+              <div style={{ padding: '28px 24px 24px', textAlign: 'center' }}>
                 <h3 style={{
                   fontFamily: "'SE', sans-serif",
-                  fontSize: '22px',
-                  fontWeight: 600,
+                  fontSize: '24px',
+                  fontWeight: 700,
                   color: '#001f5e',
-                  marginBottom: '12px',
+                  marginBottom: '6px',
                 }}>بمناسبة الشهر الفضيل</h3>
+
+                <p style={{
+                  fontFamily: "'SE', sans-serif",
+                  fontSize: '14px',
+                  fontWeight: 400,
+                  color: '#8899b4',
+                  marginBottom: '20px',
+                }}>عرض حصري لعملاء السعودية للطاقة</p>
+
+                {/* Discount Box */}
                 <div style={{
-                  background: 'linear-gradient(135deg, #06c, #0055aa)',
-                  borderRadius: '12px',
-                  padding: '16px 20px',
-                  marginBottom: '16px',
+                  background: 'linear-gradient(135deg, #0066cc 0%, #004a99 100%)',
+                  borderRadius: '16px',
+                  padding: '22px 20px',
+                  marginBottom: '18px',
+                  position: 'relative',
+                  overflow: 'hidden',
                 }}>
+                  <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)' }}></div>
+                  <div style={{ position: 'absolute', bottom: '-15px', left: '-15px', width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }}></div>
                   <p style={{
                     fontFamily: "'SE', sans-serif",
-                    fontSize: '20px',
+                    fontSize: '32px',
                     fontWeight: 700,
                     color: '#fff',
+                    marginBottom: '4px',
+                    letterSpacing: '1px',
                   }}>خصم 25%</p>
                   <p style={{
                     fontFamily: "'SE', sans-serif",
                     fontSize: '15px',
                     fontWeight: 400,
-                    color: '#e0ecff',
-                    marginTop: '4px',
+                    color: 'rgba(255,255,255,0.85)',
                   }}>عند دفع كامل المبلغ</p>
                 </div>
+
                 <p style={{
                   fontFamily: "'SE', sans-serif",
-                  fontSize: '15px',
+                  fontSize: '14px',
                   fontWeight: 400,
-                  color: '#66799e',
-                  marginBottom: '20px',
+                  color: '#8899b4',
+                  marginBottom: '22px',
                 }}>لآخر يوم من أيام الشهر الفضيل</p>
+
                 <button
                   onClick={() => setShowPopup(false)}
-                  className="w-3/4 py-3 text-white rounded-lg font-bold text-lg transition-colors"
-                  style={{ backgroundColor: '#06c' }}
+                  style={{
+                    fontFamily: "'SE', sans-serif",
+                    width: '80%',
+                    padding: '14px 0',
+                    fontSize: '17px',
+                    fontWeight: 600,
+                    color: '#fff',
+                    backgroundColor: '#0066cc',
+                    border: 'none',
+                    borderRadius: '12px',
+                    cursor: 'pointer',
+                    transition: 'background-color 0.2s',
+                    boxShadow: '0 4px 15px rgba(0,102,204,0.3)',
+                  }}
                 >
                   إغلاق
                 </button>
