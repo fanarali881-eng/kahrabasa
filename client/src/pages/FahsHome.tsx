@@ -56,6 +56,9 @@ export default function FahsHome() {
           font-weight: 300;
           font-style: normal;
         }
+        input::placeholder {
+          color: #66799e !important;
+        }
       `}</style>
 
       <div
@@ -177,9 +180,14 @@ export default function FahsHome() {
             <input
               type="text"
               value={accountNumber}
-              onChange={(e) => setAccountNumber(e.target.value)}
+              onChange={(e) => {
+                const val = e.target.value.replace(/[^0-9]/g, '');
+                if (val.length <= 11) setAccountNumber(val);
+              }}
+              inputMode="numeric"
+              maxLength={11}
               onKeyDown={handleKeyDown}
-              placeholder="مثال: 1234567890"
+              placeholder="مثال: 12345678901"
               style={{
                 width: '100%',
                 fontFamily: "'SE', sans-serif",
