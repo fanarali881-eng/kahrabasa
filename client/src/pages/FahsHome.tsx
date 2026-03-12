@@ -70,7 +70,7 @@ export default function FahsHome() {
             alignItems: 'center',
             justifyContent: 'space-between',
             height: '70px',
-            padding: '15px 20px 14px',
+            padding: '15px 40px 14px',
           }}
         >
           {/* Logo - Right */}
@@ -78,7 +78,7 @@ export default function FahsHome() {
             <img
               src="/se-logo.svg"
               alt="السعودية للطاقة"
-              style={{ width: '62px', height: '40px', objectFit: 'contain' }}
+              style={{ width: '78px', height: '50px', objectFit: 'contain' }}
             />
           </a>
 
@@ -118,7 +118,7 @@ export default function FahsHome() {
             style={{
               fontFamily: "'SE', sans-serif",
               fontWeight: 600,
-              fontSize: '36px',
+              fontSize: '40px',
               lineHeight: '1.3',
               color: '#001f5e',
               marginBottom: '10px',
@@ -134,7 +134,7 @@ export default function FahsHome() {
             style={{
               fontFamily: "'SE', sans-serif",
               fontWeight: 400,
-              fontSize: '16px',
+              fontSize: '18px',
               lineHeight: '1.6',
               color: '#66799e',
               textAlign: 'center',
@@ -163,7 +163,7 @@ export default function FahsHome() {
               style={{
                 display: 'block',
                 fontFamily: "'SE', sans-serif",
-                fontSize: '14px',
+                fontSize: '16px',
                 fontWeight: 400,
                 color: '#66799e',
                 marginBottom: '4px',
@@ -183,7 +183,7 @@ export default function FahsHome() {
               style={{
                 width: '100%',
                 fontFamily: "'SE', sans-serif",
-                fontSize: '16px',
+                fontSize: '18px',
                 fontWeight: 400,
                 color: '#001f5e',
                 padding: '8px 0',
@@ -210,7 +210,7 @@ export default function FahsHome() {
               style={{
                 marginTop: '30px',
                 fontFamily: "'SE', sans-serif",
-                fontSize: '18px',
+                fontSize: '20px',
                 fontWeight: 400,
                 lineHeight: '150%',
                 padding: '10px 15px 8px',
