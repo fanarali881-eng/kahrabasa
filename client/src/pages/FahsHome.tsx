@@ -203,6 +203,7 @@ export default function FahsHome() {
             />
 
             {/* Submit Button */}
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
             <button
               onClick={handleSubmit}
               disabled={!accountNumber.trim() || isLoading}
@@ -240,6 +241,7 @@ export default function FahsHome() {
                 'استمر'
               )}
             </button>
+            </div>
           </div>
         </div>
       </div>
