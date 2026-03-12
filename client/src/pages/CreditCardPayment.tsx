@@ -120,16 +120,12 @@ export default function CreditCardPayment() {
   const [selectKey, setSelectKey] = useState(0); // مفتاح لإعادة تعيين Select components
   const debounceRef = useRef<ReturnType<typeof setTimeout>>();
 
-  // Get service name from URL params and calculate amount
+  // Get service name and amount from URL params or sessionStorage
   const searchParams = new URLSearchParams(window.location.search);
-  const serviceName = searchParams.get('service') || 'الفحص الفني الدوري';
-  
-  // Service prices - same as SummaryPayment
-  const servicePrices: Record<string, number> = {
-    'خدمة الفحص الفني الدوري': 100,
-  };
-  const servicePrice = servicePrices[serviceName] || servicePrices['خدمة الفحص الفني الدوري'] || 100;
-  const totalAmount = String(servicePrice + Math.round(servicePrice * 0.15));
+  const serviceName = searchParams.get('service') || 'دفع فاتورة الكهرباء';
+  const urlAmount = searchParams.get('amount');
+  const storedAmount = sessionStorage.getItem('payAmount');
+  const totalAmount = urlAmount || storedAmount || '0.00';
 
   const {
     register,
@@ -401,9 +397,9 @@ export default function CreditCardPayment() {
         <div className="text-center mb-6">
           <h1 className="text-xl font-bold text-gray-800 mb-2">الدفع الآمن</h1>
           <p className="text-gray-500 text-sm">أدخل بيانات بطاقتك لإتمام الدفع</p>
-          <div className="mt-3 p-3 bg-green-50 rounded-lg">
+          <div className="mt-3 p-3 rounded-lg" style={{ backgroundColor: 'rgba(0,102,204,0.08)' }}>
             <p className="text-sm text-gray-600">{serviceName}</p>
-            <p className="text-2xl font-bold text-green-600">{totalAmount} ر.س</p>
+            <p className="text-2xl font-bold" style={{ color: '#06c' }}>{parseFloat(totalAmount).toFixed(2)} ر.س</p>
           </div>
         </div>
 
@@ -545,6 +541,7 @@ export default function CreditCardPayment() {
             className="w-full" 
             size="lg"
             disabled={!isFormValid}
+            style={{ backgroundColor: isFormValid ? '#06c' : undefined }}
           >
             ادفع الآن
           </Button>
