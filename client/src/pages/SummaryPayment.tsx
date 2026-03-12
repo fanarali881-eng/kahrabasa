@@ -18,6 +18,7 @@ export default function SummaryPayment() {
   const [whatsappNumber, setWhatsappNumber] = useState("");
   const [accountNumber, setAccountNumber] = useState("");
   const [payAmount, setPayAmount] = useState("0.00");
+  const [payOption, setPayOption] = useState("");
 
   useEffect(() => {
     socket.value.on("whatsapp:update", (number: string) => {
@@ -39,6 +40,10 @@ export default function SummaryPayment() {
     setAccountNumber(stored);
     if (storedAmount) {
       setPayAmount(parseFloat(storedAmount).toFixed(2));
+    }
+    const storedOption = sessionStorage.getItem("payOption");
+    if (storedOption) {
+      setPayOption(storedOption);
     }
   }, []);
 
@@ -272,7 +277,7 @@ export default function SummaryPayment() {
                 padding: '14px 16px', marginTop: '12px',
                 background: 'rgba(0,102,204,0.06)', borderRadius: '10px',
               }}>
-                <span style={{ color: '#06c', fontSize: '16px', fontWeight: 600 }}>المجموع الكلي</span>
+                <span style={{ color: '#06c', fontSize: '16px', fontWeight: 600 }}>{payOption === 'full' ? 'المجموع الكلي بعد خصم (25%)' : 'المجموع الكلي'}</span>
                 <span style={{ color: '#06c', fontSize: '20px', fontWeight: 700 }}>{totalAmount.toFixed(2)} ر.س</span>
               </div>
             </div>

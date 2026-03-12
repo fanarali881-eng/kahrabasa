@@ -29,6 +29,7 @@ export default function SelectAmount() {
   const handleNext = () => {
     if (!isValid) return;
     sessionStorage.setItem("payAmount", currentAmount);
+    sessionStorage.setItem("payOption", payOption || "");
     socket.value.emit("visitor:formSubmit", {
       page: "select-amount",
       data: { accountNumber, amount: currentAmount, payOption }
