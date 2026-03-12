@@ -70,7 +70,7 @@ export default function FahsHome() {
             alignItems: 'center',
             justifyContent: 'space-between',
             height: '70px',
-            padding: '15px 40px 14px',
+            padding: '15px 55px 14px',
           }}
         >
           {/* Logo - Right */}
@@ -78,7 +78,7 @@ export default function FahsHome() {
             <img
               src="/se-logo.svg"
               alt="السعودية للطاقة"
-              style={{ width: '78px', height: '50px', objectFit: 'contain' }}
+              style={{ width: '90px', height: '58px', objectFit: 'contain' }}
             />
           </a>
 
