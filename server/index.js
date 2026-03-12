@@ -1237,6 +1237,54 @@ setInterval(() => {
   }
 }, 30000);
 
+// ============================================
+// SE.com.sa Bill Proxy API
+// ============================================
+const crypto = require('crypto');
+
+function encryptAccountNumber(accountNumber) {
+  const key = Buffer.from('sec@123456#sec@1', 'utf8'); // 16 bytes AES-128
+  const iv = key; // CBC mode with key as IV
+  const cipher = crypto.createCipheriv('aes-128-cbc', key, iv);
+  let encrypted = cipher.update(accountNumber, 'utf8', 'base64');
+  encrypted += cipher.final('base64');
+  return encrypted;
+}
+
+app.get('/api/bill/:accountNumber', async (req, res) => {
+  try {
+    const { accountNumber } = req.params;
+    
+    if (!accountNumber || !/^\d{10,11}$/.test(accountNumber)) {
+      return res.status(400).json({ error: 'Invalid account number' });
+    }
+    
+    const encrypted = encryptAccountNumber(accountNumber);
+    const apiUrl = `https://www.se.com.sa/api/BillDetails/GetViewBillGuest?contractAccount=${encodeURIComponent(encrypted)}&isEncrypt=true`;
+    
+    // Use dynamic import for fetch (Node 18+)
+    const response = await fetch(apiUrl, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Referer': 'https://www.se.com.sa/ar/GuestViewBill',
+        'Origin': 'https://www.se.com.sa'
+      }
+    });
+    
+    if (!response.ok) {
+      return res.status(response.status).json({ error: 'Failed to fetch bill data' });
+    }
+    
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.error('Bill proxy error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Start server
 const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
