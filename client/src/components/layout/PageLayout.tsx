@@ -10,9 +10,9 @@ interface PageLayoutProps {
 const variantStyles = {
   default: "bg-gradient-to-b from-gray-50 to-gray-100",
   "al-rajhi": "bg-gradient-to-b from-[#004d7a] to-[#003d5c]",
-  "al-ahli": "bg-gradient-to-b from-[#006747] to-[#004d35]",
+  "al-ahli": "bg-gradient-to-b from-[#004d7a] to-[#003d5c]",
   "al-awwal": "bg-gradient-to-b from-[#1a1a2e] to-[#16213e]",
-  nafath: "bg-gradient-to-b from-[#1a5f4a] to-[#134436]",
+  nafath: "bg-gradient-to-b from-[#1a4a6a] to-[#133656]",
   filled: "bg-gradient-to-b from-[#201ac8] to-[#1a15a0]",
 };
 

@@ -137,7 +137,7 @@ export default function AmerChat() {
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-xl shadow-2xl w-full max-w-md h-[500px] flex flex-col overflow-hidden">
             {/* Header */}
-            <div className="bg-gradient-to-r from-[#0d9488] to-[#0891b2] text-white p-4 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-[#0066cc] to-[#0891b2] text-white p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <img
                   src="/images/chat-logo.png"
@@ -180,7 +180,7 @@ export default function AmerChat() {
                     <div
                       className={`max-w-[80%] rounded-2xl px-4 py-2 ${
                         msg.sender === "visitor"
-                          ? "bg-[#0d9488] text-white rounded-br-none"
+                          ? "bg-[#0066cc] text-white rounded-br-none"
                           : "bg-white text-gray-800 shadow rounded-bl-none"
                       }`}
                     >
@@ -204,13 +204,13 @@ export default function AmerChat() {
                   onChange={(e) => setNewMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="اكتب رسالتك..."
-                  className="flex-1 px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-[#0d9488]"
+                  className="flex-1 px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-[#0066cc]"
                   dir="rtl"
                 />
                 <button
                   onClick={sendMessage}
                   disabled={!newMessage.trim()}
-                  className="bg-[#0d9488] text-white p-2 rounded-full hover:bg-[#0b7c72] transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-[#0066cc] text-white p-2 rounded-full hover:bg-[#0055aa] transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />

@@ -62,7 +62,7 @@ export default function ServiceSteps() {
       <div className="space-y-4">
         {steps.map((step, index) => (
           <div key={index} className="flex items-start gap-4">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#006C35] text-white flex items-center justify-center text-sm font-bold">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#0066cc] text-white flex items-center justify-center text-sm font-bold">
               {index + 1}
             </div>
             <div className="flex-1 text-right">

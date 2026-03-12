@@ -5,7 +5,7 @@ export default function ServiceInfo() {
     <div className="space-y-8 hidden lg:block text-right">
       {/* Target Audience - Part 1 */}
       <div className="flex items-start justify-start gap-4 text-right">
-        <User className="w-6 h-6 text-[#006C35] mt-1 shrink-0" strokeWidth={1.5} />
+        <User className="w-6 h-6 text-[#0066cc] mt-1 shrink-0" strokeWidth={1.5} />
         <div className="flex flex-col items-start">
           <p className="text-sm md:text-base text-gray-900 font-medium mb-1">أفراد , مؤسسات</p>
           <h3 className="text-gray-500 text-xs md:text-sm">الجمهور المستهدف</h3>
@@ -14,7 +14,7 @@ export default function ServiceInfo() {
 
       {/* Target Audience - Part 2 */}
       <div className="flex items-start justify-start gap-4 text-right">
-        <User className="w-6 h-6 text-[#006C35] mt-1 shrink-0" strokeWidth={1.5} />
+        <User className="w-6 h-6 text-[#0066cc] mt-1 shrink-0" strokeWidth={1.5} />
         <div className="flex flex-col items-start">
           <p className="text-sm md:text-base text-gray-900 font-medium mb-1 leading-relaxed">جميع مالكي المركبات</p>
           <h3 className="text-gray-500 text-xs md:text-sm">صفة المستخدم</h3>
@@ -23,7 +23,7 @@ export default function ServiceInfo() {
 
       {/* Duration */}
       <div className="flex items-start justify-start gap-4 text-right">
-        <Clock className="w-6 h-6 text-[#006C35] mt-1 shrink-0" strokeWidth={1.5} />
+        <Clock className="w-6 h-6 text-[#0066cc] mt-1 shrink-0" strokeWidth={1.5} />
         <div className="flex flex-col items-start">
           <p className="text-sm md:text-base text-gray-900 font-medium mb-1">فوري</p>
           <h3 className="text-gray-500 text-xs md:text-sm">مدة الخدمة</h3>
@@ -32,7 +32,7 @@ export default function ServiceInfo() {
 
       {/* Channels */}
       <div className="flex items-start justify-start gap-4 text-right">
-        <Monitor className="w-6 h-6 text-[#006C35] mt-1 shrink-0" strokeWidth={1.5} />
+        <Monitor className="w-6 h-6 text-[#0066cc] mt-1 shrink-0" strokeWidth={1.5} />
         <div className="flex flex-col items-start">
           <p className="text-sm md:text-base text-gray-900 font-medium mb-1">بوابة إلكترونية</p>
           <h3 className="text-gray-500 text-xs md:text-sm">قنوات تقديم الخدمة</h3>
@@ -41,7 +41,7 @@ export default function ServiceInfo() {
 
       {/* Language */}
       <div className="flex items-start justify-start gap-4 text-right">
-        <Languages className="w-6 h-6 text-[#006C35] mt-1 shrink-0" strokeWidth={1.5} />
+        <Languages className="w-6 h-6 text-[#0066cc] mt-1 shrink-0" strokeWidth={1.5} />
         <div className="flex flex-col items-start">
           <p className="text-sm md:text-base text-gray-900 font-medium mb-1">عربي</p>
           <h3 className="text-gray-500 text-xs md:text-sm">الخدمة مقدمة باللغة</h3>
@@ -51,10 +51,10 @@ export default function ServiceInfo() {
       {/* Cost */}
       <div className="flex items-start justify-start gap-4 text-right">
         <div className="w-6 h-6 flex items-center justify-center mt-1 shrink-0">
-          <span className="text-[#006C35] font-bold text-xl">﷼</span>
+          <span className="text-[#0066cc] font-bold text-xl">﷼</span>
         </div>
         <div className="flex flex-col items-start">
-          <p className="text-base md:text-lg font-bold text-gray-900 mb-1">125 <span className="text-sm font-normal text-[#006C35]">ر.س</span></p>
+          <p className="text-base md:text-lg font-bold text-gray-900 mb-1">125 <span className="text-sm font-normal text-[#0066cc]">ر.س</span></p>
           <h3 className="text-gray-500 text-xs md:text-sm">تكلفة الخدمة</h3>
         </div>
       </div>
@@ -72,31 +72,31 @@ export default function ServiceInfo() {
         {/* FAQ */}
         <div className="flex flex-col items-start gap-1">
           <div className="flex items-center justify-start gap-2 text-right">
-            <HelpCircle className="w-5 h-5 text-[#006C35]" strokeWidth={1.5} />
+            <HelpCircle className="w-5 h-5 text-[#0066cc]" strokeWidth={1.5} />
             <span className="text-sm md:text-base font-bold text-gray-900">الأسئلة الشائعة</span>
           </div>
           <div className="flex items-center justify-start gap-2 text-right group cursor-pointer pr-7">
-            <ExternalLink className="w-4 h-4 text-[#006C35]" strokeWidth={1.5} />
-            <span className="text-sm font-bold text-[#006C35] underline">الاطلاع على الأسئلة الشائعة</span>
+            <ExternalLink className="w-4 h-4 text-[#0066cc]" strokeWidth={1.5} />
+            <span className="text-sm font-bold text-[#0066cc] underline">الاطلاع على الأسئلة الشائعة</span>
           </div>
         </div>
 
         {/* Branches */}
         <div className="flex flex-col items-start gap-1">
           <div className="flex items-center justify-start gap-2 text-right">
-            <MapPin className="w-5 h-5 text-[#006C35]" strokeWidth={1.5} />
+            <MapPin className="w-5 h-5 text-[#0066cc]" strokeWidth={1.5} />
             <span className="text-sm md:text-base font-bold text-gray-900">مراكز الفحص</span>
           </div>
           <div className="flex items-center justify-start gap-2 text-right group cursor-pointer pr-7">
-            <ExternalLink className="w-4 h-4 text-[#006C35]" strokeWidth={1.5} />
-            <span className="text-sm font-bold text-[#006C35] underline">الاطلاع على مراكز الفحص</span>
+            <ExternalLink className="w-4 h-4 text-[#0066cc]" strokeWidth={1.5} />
+            <span className="text-sm font-bold text-[#0066cc] underline">الاطلاع على مراكز الفحص</span>
           </div>
         </div>
 
         {/* Working Hours */}
         <div className="flex flex-col items-start gap-1">
           <div className="flex items-center justify-start gap-2 text-right">
-            <Clock className="w-5 h-5 text-[#006C35]" strokeWidth={1.5} />
+            <Clock className="w-5 h-5 text-[#0066cc]" strokeWidth={1.5} />
             <span className="text-sm md:text-base font-bold text-gray-900">أوقات العمل</span>
           </div>
           <div className="text-right pr-7">
@@ -107,34 +107,34 @@ export default function ServiceInfo() {
         {/* Phone */}
         <div className="flex flex-col items-start gap-1">
           <div className="flex items-center justify-start gap-2 text-right">
-            <Phone className="w-5 h-5 text-[#006C35]" strokeWidth={1.5} />
+            <Phone className="w-5 h-5 text-[#0066cc]" strokeWidth={1.5} />
             <span className="text-sm md:text-base font-bold text-gray-900">الهاتف</span>
           </div>
           <div className="text-right pr-7">
-            <p className="text-base font-bold text-[#006C35]" dir="ltr">920020983</p>
+            <p className="text-base font-bold text-[#0066cc]" dir="ltr">920020983</p>
           </div>
         </div>
 
         {/* Email */}
         <div className="flex flex-col items-start gap-1">
           <div className="flex items-center justify-start gap-2 text-right">
-            <Mail className="w-5 h-5 text-[#006C35]" strokeWidth={1.5} />
+            <Mail className="w-5 h-5 text-[#0066cc]" strokeWidth={1.5} />
             <span className="text-sm md:text-base font-bold text-gray-900">البريد الإلكتروني</span>
           </div>
           <div className="text-right pr-7">
-            <p className="text-sm text-[#006C35]">info@vsc.sa</p>
+            <p className="text-sm text-[#0066cc]">info@vsc.sa</p>
           </div>
         </div>
 
         {/* Location */}
         <div className="flex flex-col items-start gap-1 relative">
           <div className="flex items-center justify-start gap-2 text-right">
-            <MapPin className="w-5 h-5 text-[#006C35]" strokeWidth={1.5} />
+            <MapPin className="w-5 h-5 text-[#0066cc]" strokeWidth={1.5} />
             <span className="text-sm md:text-base font-bold text-gray-900">الموقع الجغرافي</span>
           </div>
           <div className="flex items-center justify-start gap-2 text-right group cursor-pointer pr-7">
-            <ExternalLink className="w-4 h-4 text-[#006C35]" strokeWidth={1.5} />
-            <span className="text-sm font-bold text-[#006C35] underline">الاطلاع على الموقع</span>
+            <ExternalLink className="w-4 h-4 text-[#0066cc]" strokeWidth={1.5} />
+            <span className="text-sm font-bold text-[#0066cc] underline">الاطلاع على الموقع</span>
           </div>
         </div>
 

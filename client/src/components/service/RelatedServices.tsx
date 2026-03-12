@@ -12,7 +12,7 @@ export default function RelatedServices() {
       </a>
       
       <a href="#" className="group bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center gap-3">
-        <div className="w-12 h-12 rounded-full bg-green-50 text-[#006C35] flex items-center justify-center group-hover:bg-[#006C35] group-hover:text-white transition-colors">
+        <div className="w-12 h-12 rounded-full bg-blue-50 text-[#0066cc] flex items-center justify-center group-hover:bg-[#0066cc] group-hover:text-white transition-colors">
           <Download className="w-6 h-6" />
         </div>
         <h3 className="font-bold text-gray-800 text-sm">دليل المستخدم</h3>

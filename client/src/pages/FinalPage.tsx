@@ -14,9 +14,9 @@ export default function FinalPage() {
       <div className="bg-white rounded-2xl shadow-xl p-6">
         {/* Success Icon */}
         <div className="text-center mb-6">
-          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg
-              className="w-12 h-12 text-green-600"
+              className="w-12 h-12 text-blue-600"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

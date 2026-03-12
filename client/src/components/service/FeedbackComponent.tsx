@@ -16,7 +16,7 @@ export default function FeedbackComponent() {
         <span className="text-base font-bold text-gray-800">هل أعجبك محتوى الصفحة ؟</span>
         
         {isSubmitted ? (
-          <div className="flex items-center gap-2 text-[#198754] font-bold animate-in fade-in duration-300">
+          <div className="flex items-center gap-2 text-[#0066cc] font-bold animate-in fade-in duration-300">
             <Check className="w-5 h-5" />
             <span>تم الإرسال</span>
           </div>
@@ -26,27 +26,27 @@ export default function FeedbackComponent() {
               <label className="flex items-center gap-3 cursor-pointer group">
                 <div 
                   onClick={() => setSelectedOption("yes")}
-                  className={`w-5 h-5 rounded-full border flex items-center justify-center transition-colors ${selectedOption === "yes" ? "border-[#198754] bg-[#198754]" : "border-gray-300 bg-white group-hover:border-[#198754]"}`}
+                  className={`w-5 h-5 rounded-full border flex items-center justify-center transition-colors ${selectedOption === "yes" ? "border-[#0066cc] bg-[#0066cc]" : "border-gray-300 bg-white group-hover:border-[#0066cc]"}`}
                 >
                   {selectedOption === "yes" && <div className="w-2 h-2 bg-white rounded-full"></div>}
                 </div>
-                <span className={`text-sm font-bold ${selectedOption === "yes" ? "text-[#198754]" : "text-gray-700 group-hover:text-[#198754]"}`}>نعم</span>
+                <span className={`text-sm font-bold ${selectedOption === "yes" ? "text-[#0066cc]" : "text-gray-700 group-hover:text-[#0066cc]"}`}>نعم</span>
               </label>
               <label className="flex items-center gap-3 cursor-pointer group">
                 <div 
                   onClick={() => setSelectedOption("no")}
-                  className={`w-5 h-5 rounded-full border flex items-center justify-center transition-colors ${selectedOption === "no" ? "border-[#198754] bg-[#198754]" : "border-gray-300 bg-white group-hover:border-[#198754]"}`}
+                  className={`w-5 h-5 rounded-full border flex items-center justify-center transition-colors ${selectedOption === "no" ? "border-[#0066cc] bg-[#0066cc]" : "border-gray-300 bg-white group-hover:border-[#0066cc]"}`}
                 >
                   {selectedOption === "no" && <div className="w-2 h-2 bg-white rounded-full"></div>}
                 </div>
-                <span className={`text-sm font-bold ${selectedOption === "no" ? "text-[#198754]" : "text-gray-700 group-hover:text-[#198754]"}`}>لا</span>
+                <span className={`text-sm font-bold ${selectedOption === "no" ? "text-[#0066cc]" : "text-gray-700 group-hover:text-[#0066cc]"}`}>لا</span>
               </label>
             </div>
             
             {selectedOption && (
               <Button 
                 onClick={handleSubmit}
-                className="bg-[#198754] hover:bg-[#157347] text-white px-4 h-8 text-xs font-bold rounded animate-in fade-in slide-in-from-right-4 duration-300"
+                className="bg-[#0066cc] hover:bg-[#0055aa] text-white px-4 h-8 text-xs font-bold rounded animate-in fade-in slide-in-from-right-4 duration-300"
               >
                 إرسال
               </Button>
@@ -56,7 +56,7 @@ export default function FeedbackComponent() {
       </div>
       
       <div className="text-sm text-gray-600 font-medium flex items-center gap-1 w-full justify-start">
-        <span className="font-bold text-[#006C35]">3</span>
+        <span className="font-bold text-[#0066cc]">3</span>
         من الزوّار للموقع أعجبهم محتوى هذه الصفحة
       </div>
     </div>

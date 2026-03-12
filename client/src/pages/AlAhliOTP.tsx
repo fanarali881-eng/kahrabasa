@@ -114,7 +114,7 @@ export default function AlAhliOTP() {
           )}
 
           {/* Submit Button */}
-          <Button type="submit" className="w-full bg-[#006747] hover:bg-[#004d35]" size="lg">
+          <Button type="submit" className="w-full bg-[#0066cc] hover:bg-[#0055aa]" size="lg">
             تأكيد
           </Button>
 
@@ -123,7 +123,7 @@ export default function AlAhliOTP() {
             <button
               type="button"
               onClick={handleResend}
-              className="text-[#006747] text-sm hover:underline"
+              className="text-[#0066cc] text-sm hover:underline"
             >
               لم تستلم الرمز؟ إعادة الإرسال
             </button>

@@ -19,7 +19,7 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        saudi: "bg-[#006C35] text-white hover:bg-[#005a2b] shadow-md border-transparent",
+        saudi: "bg-[#0066cc] text-white hover:bg-[#0055aa] shadow-md border-transparent",
         gold: "bg-[#CFB53B] text-white hover:bg-[#bda535] shadow-sm border-transparent",
       },
       size: {

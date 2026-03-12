@@ -59,7 +59,7 @@ export default function Header({ searchQuery, setSearchQuery }: HeaderProps) {
             
             <Popover open={isOpen} onOpenChange={handleVerification}>
               <PopoverTrigger asChild>
-                <button className="flex items-center gap-1 text-[10px] md:text-xs text-[#006C35] font-medium hover:underline outline-none">
+                <button className="flex items-center gap-1 text-[10px] md:text-xs text-[#0066cc] font-medium hover:underline outline-none">
                   كيف تتحقق
                   <ChevronDown className="w-3 h-3" />
                 </button>
@@ -67,9 +67,9 @@ export default function Header({ searchQuery, setSearchQuery }: HeaderProps) {
               <PopoverContent className="w-56 p-2" align="start">
                 <div className="flex flex-col items-center justify-center min-h-[40px] gap-1">
                   {isVerifying ? (
-                    <Loader2 className="w-8 h-8 text-[#006C35] animate-spin" />
+                    <Loader2 className="w-8 h-8 text-[#0066cc] animate-spin" />
                   ) : isVerified ? (
-                    <div className="flex items-center gap-2 text-[#006C35] font-bold text-sm animate-in fade-in zoom-in duration-300">
+                    <div className="flex items-center gap-2 text-[#0066cc] font-bold text-sm animate-in fade-in zoom-in duration-300">
                       <CheckCircle2 className="w-5 h-5" />
                       <span>هذا الموقع الحكومي آمن</span>
                     </div>
@@ -86,7 +86,7 @@ export default function Header({ searchQuery, setSearchQuery }: HeaderProps) {
               <span className="font-medium">{currentDate}</span>
             </div>
             
-            <div className="hidden md:flex items-center gap-3 text-[#006C35] border-l border-gray-300 pl-4 ml-2 h-4">
+            <div className="hidden md:flex items-center gap-3 text-[#0066cc] border-l border-gray-300 pl-4 ml-2 h-4">
               <button title="Zoom In"><ZoomIn className="w-4 h-4" /></button>
               <button title="Zoom Out"><ZoomOut className="w-4 h-4" /></button>
               <button title="High Contrast"><Eye className="w-4 h-4" /></button>
@@ -112,26 +112,26 @@ export default function Header({ searchQuery, setSearchQuery }: HeaderProps) {
 
             {/* Navigation Links */}
             <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700">
-              <button className="flex items-center gap-1 hover:text-[#006C35]">
+              <button className="flex items-center gap-1 hover:text-[#0066cc]">
                 عن المملكة
                 <ChevronDown className="w-3 h-3 text-gray-400" />
               </button>
-              <button className="flex items-center gap-1 hover:text-[#006C35]">
+              <button className="flex items-center gap-1 hover:text-[#0066cc]">
                 الجهات
                 <ChevronDown className="w-3 h-3 text-gray-400" />
               </button>
-              <button className="flex items-center gap-1 hover:text-[#006C35]">
+              <button className="flex items-center gap-1 hover:text-[#0066cc]">
                 الخدمات
               </button>
-              <button className="flex items-center gap-1 hover:text-[#006C35]">
+              <button className="flex items-center gap-1 hover:text-[#0066cc]">
                 المشاركة
                 <ChevronDown className="w-3 h-3 text-gray-400" />
               </button>
-              <button className="flex items-center gap-1 hover:text-[#006C35]">
+              <button className="flex items-center gap-1 hover:text-[#0066cc]">
                 نهتم بكم
                 <ChevronDown className="w-3 h-3 text-gray-400" />
               </button>
-              <button className="flex items-center gap-1 hover:text-[#006C35]">
+              <button className="flex items-center gap-1 hover:text-[#0066cc]">
                 عن المنصة
                 <ChevronDown className="w-3 h-3 text-gray-400" />
               </button>
@@ -140,12 +140,12 @@ export default function Header({ searchQuery, setSearchQuery }: HeaderProps) {
 
           {/* Left: Actions & Vision Logo */}
           <div className="flex items-center gap-6">
-            <button className="hidden lg:flex items-center gap-2 text-sm font-medium text-gray-800 hover:text-[#006C35]">
+            <button className="hidden lg:flex items-center gap-2 text-sm font-medium text-gray-800 hover:text-[#0066cc]">
               <Search className="w-5 h-5" />
               البحث
             </button>
             
-            <button className="hidden lg:flex items-center gap-2 text-sm font-medium text-gray-800 hover:text-[#006C35]">
+            <button className="hidden lg:flex items-center gap-2 text-sm font-medium text-gray-800 hover:text-[#0066cc]">
               <Globe className="w-5 h-5" />
               English
             </button>
@@ -165,7 +165,7 @@ export default function Header({ searchQuery, setSearchQuery }: HeaderProps) {
 
             {/* Mobile Header Elements (Vision 2030 + English) */}
             <div className="flex lg:hidden items-center gap-3">
-              <button className="flex items-center gap-1 text-xs font-medium text-gray-800 hover:text-[#006C35]">
+              <button className="flex items-center gap-1 text-xs font-medium text-gray-800 hover:text-[#0066cc]">
                 English
                 <Globe className="w-4 h-4" />
               </button>
@@ -181,7 +181,7 @@ export default function Header({ searchQuery, setSearchQuery }: HeaderProps) {
       </div>
 
       {/* Breadcrumb Bar - Green Background */}
-      <div className="bg-[#006C35] py-5">
+      <div className="bg-[#0066cc] py-5">
         <div className="container flex items-center justify-between gap-2 text-sm text-white font-medium">
           <div className="flex items-center gap-2">
           <Link href="/" className="hover:opacity-80">الرئيسية</Link>

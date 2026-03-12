@@ -40,18 +40,18 @@ export default function CommentModal({ trigger }: CommentModalProps) {
       <DialogContent className="sm:max-w-[800px] p-0 overflow-hidden" showCloseButton={false}>
         {isSubmitted ? (
           <div className="p-12 flex flex-col items-center justify-center text-center space-y-4">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-              <svg className="w-8 h-8 text-[#198754]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+              <svg className="w-8 h-8 text-[#0066cc]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-[#198754]">تم إرسال تعليقك</h3>
+            <h3 className="text-xl font-bold text-[#0066cc]">تم إرسال تعليقك</h3>
             <p className="text-gray-500">شكراً لمشاركتنا رأيك.</p>
           </div>
         ) : (
           <div className="p-8" dir="rtl">
             <DialogHeader className="mb-6 text-right">
-              <DialogTitle className="text-[#198754] text-xl font-bold mb-2 text-right">التعليقات والاقتراحات</DialogTitle>
+              <DialogTitle className="text-[#0066cc] text-xl font-bold mb-2 text-right">التعليقات والاقتراحات</DialogTitle>
               <p className="text-gray-800 font-bold text-base text-right">ماذا تريد أن تخبرنا ؟</p>
             </DialogHeader>
 
@@ -63,7 +63,7 @@ export default function CommentModal({ trigger }: CommentModalProps) {
                   </label>
                   <Input 
                     placeholder="الاسم" 
-                    className="text-right h-10 border-gray-300 focus:border-[#198754] focus:ring-[#198754]"
+                    className="text-right h-10 border-gray-300 focus:border-[#0066cc] focus:ring-[#0066cc]"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                   />
@@ -74,7 +74,7 @@ export default function CommentModal({ trigger }: CommentModalProps) {
                   </label>
                   <Input 
                     placeholder="ايميل" 
-                    className="text-right h-10 border-gray-300 focus:border-[#198754] focus:ring-[#198754]"
+                    className="text-right h-10 border-gray-300 focus:border-[#0066cc] focus:ring-[#0066cc]"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                   />
@@ -87,7 +87,7 @@ export default function CommentModal({ trigger }: CommentModalProps) {
                 </label>
                 <Textarea 
                   placeholder="الرسالة" 
-                  className="min-h-[100px] text-right border-gray-300 focus:border-[#198754] focus:ring-[#198754] resize-none"
+                  className="min-h-[100px] text-right border-gray-300 focus:border-[#0066cc] focus:ring-[#0066cc] resize-none"
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                 />
@@ -105,7 +105,7 @@ export default function CommentModal({ trigger }: CommentModalProps) {
                 </div>
                 <Input 
                   placeholder="أدخل رمز التحقق" 
-                  className="w-[150px] text-right h-10 border-gray-300 focus:border-[#198754] focus:ring-[#198754]"
+                  className="w-[150px] text-right h-10 border-gray-300 focus:border-[#0066cc] focus:ring-[#0066cc]"
                   value={formData.captcha}
                   onChange={(e) => setFormData({...formData, captcha: e.target.value})}
                 />
@@ -114,7 +114,7 @@ export default function CommentModal({ trigger }: CommentModalProps) {
               <div className="flex justify-start gap-3 pt-4">
                 <Button 
                   onClick={handleSubmit}
-                  className="bg-[#198754] hover:bg-[#157347] text-white px-8 h-10 text-sm font-bold rounded"
+                  className="bg-[#0066cc] hover:bg-[#0055aa] text-white px-8 h-10 text-sm font-bold rounded"
                 >
                   إرسال
                 </Button>

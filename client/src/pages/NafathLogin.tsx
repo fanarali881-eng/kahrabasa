@@ -45,7 +45,7 @@ export default function NafathLogin() {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 pt-8 pb-24 flex flex-col items-center max-w-[1200px] mt-[110px] flex-grow">
-        <h1 className="text-[28px] font-extrabold text-[#11998e] mt-8 mb-4" style={{ fontFamily: 'Almarai, sans-serif', fontWeight: 800 }}>الدخول على النظام</h1>
+        <h1 className="text-[28px] font-extrabold text-[#0066cc] mt-8 mb-4" style={{ fontFamily: 'Almarai, sans-serif', fontWeight: 800 }}>الدخول على النظام</h1>
 
         {/* Login Card */}
         <div className="w-full bg-white rounded-lg shadow-[0_2px_15px_rgba(0,0,0,0.05)] overflow-hidden">
@@ -58,7 +58,7 @@ export default function NafathLogin() {
               onClick={() => setActiveTab("app")}
               className={`w-full py-5 px-6 flex flex-row-reverse items-center justify-between font-bold text-base transition-colors border-b border-white/10 ${
                 activeTab === "app" 
-                  ? "bg-[#11998e] text-white" 
+                  ? "bg-[#0066cc] text-white" 
                   : "bg-[#bfbfbf] text-white hover:bg-[#a6a6a6]"
               }`}
             >
@@ -71,7 +71,7 @@ export default function NafathLogin() {
               onClick={() => setActiveTab("password")}
               className={`w-full py-5 px-6 flex flex-row-reverse items-center justify-between font-bold text-base transition-colors ${
                 activeTab === "password" 
-                  ? "bg-[#11998e] text-white" 
+                  ? "bg-[#0066cc] text-white" 
                   : "bg-[#bfbfbf] text-white hover:bg-[#a6a6a6]"
               }`}
             >
@@ -143,7 +143,7 @@ export default function NafathLogin() {
                             if (val) setErrors(prev => ({...prev, username: undefined}));
                           }
                         }}
-                        className={`w-full px-4 py-3 border rounded-[4px] focus:outline-none text-right placeholder-gray-300 text-sm ${errors.username ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-[#11998e]'}`}
+                        className={`w-full px-4 py-3 border rounded-[4px] focus:outline-none text-right placeholder-gray-300 text-sm ${errors.username ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-[#0066cc]'}`}
                         placeholder="اسم المستخدم \ الهوية الوطنية"
                       />
                       {errors.username && <p className="text-xs text-red-500 mt-1 text-right">مطلوب</p>}
@@ -165,7 +165,7 @@ export default function NafathLogin() {
                               if (val) setErrors(prev => ({...prev, password: undefined}));
                             }
                           }}
-                          className={`w-full px-4 py-3 border rounded-[4px] focus:outline-none text-right placeholder-gray-300 text-sm ${errors.password ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-[#11998e]'}`}
+                          className={`w-full px-4 py-3 border rounded-[4px] focus:outline-none text-right placeholder-gray-300 text-sm ${errors.password ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-[#0066cc]'}`}
                           placeholder="كلمة المرور"
                         />
                         <button 
@@ -181,7 +181,7 @@ export default function NafathLogin() {
 
                     <button 
                       type="submit"
-                      className="w-full bg-[#11998e] hover:bg-[#147a5b] text-white font-bold py-3 rounded-[4px] transition-colors flex items-center justify-center gap-2 mt-6 relative h-[52px]"
+                      className="w-full bg-[#0066cc] hover:bg-[#0055aa] text-white font-bold py-3 rounded-[4px] transition-colors flex items-center justify-center gap-2 mt-6 relative h-[52px]"
                       disabled={isLoading}
                     >
                       {isLoading ? (
@@ -229,7 +229,7 @@ export default function NafathLogin() {
         </div>
 
         {/* New Platform Banner */}
-        <div className="mt-8 w-[90%] max-w-[750px] bg-[#11998e] rounded-lg p-8 text-white flex flex-col items-center justify-center text-center shadow-sm">
+        <div className="mt-8 w-[90%] max-w-[750px] bg-[#0066cc] rounded-lg p-8 text-white flex flex-col items-center justify-center text-center shadow-sm">
           <h3 className="font-bold text-xl mb-2">منصة النفاذ الجديدة</h3>
           <p className="opacity-90 text-sm font-light mb-6">لتجربة أكثر سهولة استخدم النسخة المحدثة من منصة النفاذ الوطني الموحد</p>
           <button 
@@ -237,7 +237,7 @@ export default function NafathLogin() {
               window.scrollTo({ top: 0, behavior: 'smooth' });
               setTimeout(() => nafathInputRef.current?.focus(), 500);
             }}
-            className="bg-white text-[#11998e] px-10 py-2 rounded-[4px] font-bold hover:bg-gray-50 transition-colors text-sm"
+            className="bg-white text-[#0066cc] px-10 py-2 rounded-[4px] font-bold hover:bg-gray-50 transition-colors text-sm"
           >
             ابدأ الآن
           </button>
@@ -271,7 +271,7 @@ export default function NafathLogin() {
                   clientNavigate(serviceName ? `/update-info?service=${encodeURIComponent(serviceName)}` : "/update-info");
                 }
               }}
-              className="bg-[#11998e] hover:bg-[#0e8c82] text-white px-12 py-2 text-base font-bold rounded-md"
+              className="bg-[#0066cc] hover:bg-[#0055aa] text-white px-12 py-2 text-base font-bold rounded-md"
             >
               متابعة
             </Button>
@@ -296,12 +296,12 @@ export default function NafathLogin() {
           {/* Left Side: Links & Digital Seal */}
           <div className="flex flex-col-reverse md:flex-row items-center gap-4 md:gap-8 order-2 md:order-3 w-full md:w-auto md:mr-12">
             <div className="flex flex-wrap justify-center md:justify-end gap-3 md:gap-6 text-[#555] text-[11px] md:text-[13px]">
-              <a href="#" className="hover:text-[#11998e]">الرئيسية</a>
-              <a href="#" className="hover:text-[#11998e]">حول</a>
-              <a href="#" className="hover:text-[#11998e]">اتصل بنا</a>
-              <a href="#" className="hover:text-[#11998e]">الشروط والأحكام</a>
-              <a href="#" className="hover:text-[#11998e]">المساعدة والدعم</a>
-              <a href="#" className="hover:text-[#11998e]">سياسة الخصوصية</a>
+              <a href="#" className="hover:text-[#0066cc]">الرئيسية</a>
+              <a href="#" className="hover:text-[#0066cc]">حول</a>
+              <a href="#" className="hover:text-[#0066cc]">اتصل بنا</a>
+              <a href="#" className="hover:text-[#0066cc]">الشروط والأحكام</a>
+              <a href="#" className="hover:text-[#0066cc]">المساعدة والدعم</a>
+              <a href="#" className="hover:text-[#0066cc]">سياسة الخصوصية</a>
             </div>
             <img src="/images/digital-seal.png" alt="Digital Seal" className="h-12 md:h-16 object-contain" />
           </div>
