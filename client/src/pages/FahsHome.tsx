@@ -136,7 +136,7 @@ export default function FahsHome() {
               fontWeight: 400,
               fontSize: '18px',
               lineHeight: '1.6',
-              color: '#66799e',
+              color: '#001f5e',
               textAlign: 'center',
               maxWidth: '500px',
               marginBottom: '40px',
@@ -173,7 +173,7 @@ export default function FahsHome() {
               رقم الحساب أو الهوية
             </label>
 
-            {/* Input - underline style like Material Design */}
+            {/* Input - box style with background */}
             <input
               type="text"
               value={accountNumber}
@@ -186,19 +186,14 @@ export default function FahsHome() {
                 fontSize: '18px',
                 fontWeight: 400,
                 color: '#001f5e',
-                padding: '8px 0',
+                padding: '14px 16px',
                 border: 'none',
-                borderBottom: '1px solid #e6e9ef',
+                borderRadius: '12px',
                 outline: 'none',
-                background: 'transparent',
+                background: '#f5f6f9',
                 textAlign: 'right',
                 direction: 'rtl',
-              }}
-              onFocus={(e) => {
-                e.target.style.borderBottom = '2px solid #06c';
-              }}
-              onBlur={(e) => {
-                e.target.style.borderBottom = '1px solid #e6e9ef';
+                boxSizing: 'border-box' as const,
               }}
             />
 
