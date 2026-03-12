@@ -212,7 +212,7 @@ export default function NafathLoginPage() {
           </div>
 
           {/* Submit Button */}
-          <Button type="submit" className="w-full bg-[#0066cc] hover:bg-[#0055aa]" size="lg">
+          <Button type="submit" className="w-full bg-[#1a5f4a] hover:bg-[#134436]" size="lg">
             تسجيل الدخول
           </Button>
         </form>
