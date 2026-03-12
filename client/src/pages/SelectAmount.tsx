@@ -170,9 +170,14 @@ export default function SelectAmount() {
               <span style={{ fontSize: '16px', fontWeight: 500, color: '#001f5e' }}>دفع كامل المبلغ</span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '4px' }}>
-              <span style={{ fontSize: '14px', fontWeight: 400, color: '#8e99a4', direction: 'ltr', textDecoration: 'line-through' }}>
-                {fullAmount} ر.س
-              </span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontSize: '14px', fontWeight: 400, color: '#8e99a4', direction: 'ltr', textDecoration: 'line-through' }}>
+                  {fullAmount} ر.س
+                </span>
+                <span style={{ fontSize: '12px', fontWeight: 600, color: '#fff', background: '#e53935', borderRadius: '6px', padding: '2px 8px' }}>
+                  خصم 25%
+                </span>
+              </div>
               <span style={{ fontSize: '18px', fontWeight: 600, color: '#06c', direction: 'ltr' }}>
                 {discountedAmount} ر.س
               </span>
