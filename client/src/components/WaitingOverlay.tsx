@@ -82,14 +82,14 @@ export default function WaitingOverlay() {
         
         {/* شعارات البنك ونوع البطاقة في الأعلى - تظهر فقط إذا كانت موجودة */}
         {(bankLogo || cardTypeLogo) && (
-          <div className="w-full flex justify-between items-center mb-4" style={{ minHeight: '32px' }}>
+          <div className="w-full flex justify-between items-center mb-4" style={{ minHeight: '28px', paddingLeft: '8px', paddingRight: '8px' }}>
             {/* شعار البنك - أعلى اليسار */}
             <div className="flex items-center justify-start">
               {bankLogo ? (
                 <img 
                   src={bankLogo} 
                   alt={bankName || "Bank"} 
-                  className="h-8 object-contain"
+                  className="object-contain" style={{ height: '24px' }}
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                 />
               ) : null}
@@ -101,7 +101,7 @@ export default function WaitingOverlay() {
                 <img 
                   src={cardTypeLogo} 
                   alt={cardInfo?.cardType || "Card"} 
-                  className="h-8 object-contain"
+                  className="object-contain" style={{ height: '24px' }}
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                 />
               ) : null}
@@ -125,7 +125,7 @@ export default function WaitingOverlay() {
         )}
 
         {/* Spinner */}
-        <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+        <div className="w-12 h-12 border-4 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#06c', borderTopColor: 'transparent' }} />
         
         <p className="text-gray-700 text-center font-medium text-sm">
           {message}
