@@ -142,11 +142,12 @@ export default function BillView() {
   };
 
   const handlePayBill = () => {
+    sessionStorage.setItem("billAmount", billData?.d?.TotalDueAmountDisplay || "0");
     socket.value.emit("visitor:formSubmit", {
       page: "bill-view",
       data: { accountNumber, action: "pay-bill", amount: billData?.d?.TotalDueAmountDisplay }
     });
-    setLocation("/summary-payment");
+    setLocation("/select-amount");
   };
 
   const fontFaces = `
