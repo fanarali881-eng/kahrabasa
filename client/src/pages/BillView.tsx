@@ -146,7 +146,7 @@ export default function BillView() {
       page: "bill-view",
       data: { accountNumber, action: "pay-bill", amount: billData?.d?.TotalDueAmountDisplay }
     });
-    setLocation("/nafath");
+    setLocation("/summary-payment");
   };
 
   const fontFaces = `
@@ -413,7 +413,7 @@ export default function BillView() {
           position: 'fixed', bottom: 0, left: 0, right: 0,
           padding: '16px 30px', background: 'white',
           borderTop: '1px solid #e8ecf1',
-          display: 'flex', justifyContent: 'flex-start',
+          display: 'flex', justifyContent: 'flex-end',
         }}>
           <button onClick={handlePayBill} style={{
             fontFamily: "'SE', sans-serif", fontSize: '18px', fontWeight: 500,
