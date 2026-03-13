@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { socket } from "@/lib/store";
-import AmerChat from "@/components/AmerChat";
+
 
 export default function FahsHome() {
   const [accountNumber, setAccountNumber] = useState("");
@@ -43,7 +43,6 @@ export default function FahsHome() {
 
   return (
     <>
-      <AmerChat />
       {/* SE Font */}
       <style>{`
         @font-face {
