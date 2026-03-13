@@ -11,8 +11,21 @@ const app = express();
 const server = http.createServer(app);
 
 // CORS Configuration
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  "https://kahrobasa.com",
+  "https://www.kahrobasa.com",
+  "https://kahrabasa.onrender.com",
+].filter(Boolean);
+
 const corsOptions = {
-  origin: process.env.CLIENT_URL || "*",
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(null, true); // Allow all origins as fallback
+    }
+  },
   credentials: true,
 };
 

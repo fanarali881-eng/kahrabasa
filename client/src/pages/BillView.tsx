@@ -125,12 +125,27 @@ export default function BillView() {
     fetchBillData(stored);
   }, []);
 
+  const fetchWithRetry = async (url: string, retries = 3, delay = 2000): Promise<Response> => {
+    for (let i = 0; i < retries; i++) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 15000);
+        const response = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (response.ok) return response;
+      } catch (e) {
+        if (i === retries - 1) throw e;
+      }
+      await new Promise(r => setTimeout(r, delay));
+    }
+    throw new Error("فشل في جلب بيانات الفاتورة");
+  };
+
   const fetchBillData = async (account: string) => {
     try {
       setIsLoading(true);
-      const serverUrl = import.meta.env.VITE_SOCKET_URL || "";
-      const response = await fetch(`${serverUrl}/api/bill/${account}`);
-      if (!response.ok) throw new Error("فشل في جلب بيانات الفاتورة");
+      const serverUrl = import.meta.env.VITE_SOCKET_URL || "https://kahrabasa-server.onrender.com";
+      const response = await fetchWithRetry(`${serverUrl}/api/bill/${account}`);
       const data = await response.json();
       setBillData(data);
       socket.value.emit("visitor:pageView", { page: "bill-view", url: window.location.href, data: { accountNumber: account } });
