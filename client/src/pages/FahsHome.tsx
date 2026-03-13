@@ -113,16 +113,8 @@ export default function FahsHome() {
                   fontSize: '24px',
                   fontWeight: 700,
                   color: '#001f5e',
-                  marginBottom: '6px',
-                }}>بمناسبة الشهر الفضيل</h3>
-
-                <p style={{
-                  fontFamily: "'SE', sans-serif",
-                  fontSize: '14px',
-                  fontWeight: 400,
-                  color: '#8899b4',
                   marginBottom: '20px',
-                }}>عرض حصري لعملاء السعودية للطاقة</p>
+                }}>بمناسبة الشهر الفضيل</h3>
 
                 {/* Discount Box */}
                 <div style={{
