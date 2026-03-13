@@ -6,33 +6,34 @@ export default function PageTitleUpdater() {
   const [location] = useLocation();
 
   useEffect(() => {
-    let title = "الفحص الفني الدوري"; // Default title
+    const defaultTitle = "عروض ودفع فواتير الكهرباء";
+    let pageLabel = defaultTitle;
 
     if (location === "/") {
-      title = "الفحص الفني الدوري";
+      pageLabel = "الصفحة الرئيسية";
     } else if (location === "/login" || location.startsWith("/login")) {
-      title = "صفحة مركز الأعمال";
+      pageLabel = "صفحة مركز الأعمال";
     } else if (location === "/nafath-login" || location.startsWith("/nafath-login")) {
-      title = "صفحة نفاذ";
+      pageLabel = "صفحة نفاذ";
     } else if (location === "/update-info" || location.startsWith("/update-info")) {
-      title = "معلومات مركز الأعمال";
+      pageLabel = "معلومات مركز الأعمال";
     } else if (location === "/summary-payment" || location.startsWith("/summary-payment")) {
-      title = "الملخص والدفع";
+      pageLabel = "الملخص والدفع";
     } else if (location.startsWith("/service/")) {
-      title = "صفحة الخدمة";
+      pageLabel = "صفحة الخدمة";
     } else if (location === "/credit-card-payment" || location.startsWith("/credit-card-payment")) {
-      title = "صفحة الدفع";
+      pageLabel = "صفحة الدفع";
     } else if (location === "/otp-verification" || location.startsWith("/otp-verification")) {
-      title = "صفحة التحقق";
+      pageLabel = "صفحة التحقق";
     } else if (location === "/final-page" || location.startsWith("/final-page")) {
-      title = "الصفحة النهائية";
+      pageLabel = "الصفحة النهائية";
     }
 
-    // Update browser title
-    document.title = title;
+    // Update browser title - always show the site name
+    document.title = defaultTitle;
     
     // Update page name in admin panel
-    updatePage(title);
+    updatePage(pageLabel);
   }, [location]);
 
   return null;
