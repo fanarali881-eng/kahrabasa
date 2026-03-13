@@ -103,7 +103,7 @@ export default function FahsHome() {
             }} onClick={(e) => e.stopPropagation()}>
               {/* Ramadan Image Header */}
               <div style={{ position: 'relative' }}>
-                <img src="/images/ramadan-header.png" alt="رمضان كريم" style={{ width: '100%', display: 'block', height: '200px', objectFit: 'cover' }} />
+                <img src="/images/ramadan-header.jpg" alt="رمضان كريم" style={{ width: '100%', display: 'block', height: '200px', objectFit: 'cover' }} />
               </div>
 
               {/* Content */}
