@@ -137,17 +137,7 @@ export default function SelectAmount() {
             </div>
           </div>
 
-          {/* Close Button */}
-          <button className="sa-close-btn" onClick={() => setLocation("/bill")} style={{
-            background: '#e8f0fe', border: 'none', cursor: 'pointer', padding: '10px',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            borderRadius: '12px', width: '44px', height: '44px',
-          }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
+
         </div>
 
         {/* Title */}
