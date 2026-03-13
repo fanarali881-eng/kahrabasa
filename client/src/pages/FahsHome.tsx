@@ -128,25 +128,27 @@ export default function FahsHome() {
                 {/* Discount Box */}
                 <div style={{
                   background: 'linear-gradient(135deg, #0066cc 0%, #004a99 100%)',
-                  borderRadius: '16px',
-                  padding: '22px 20px',
-                  marginBottom: '18px',
+                  borderRadius: '12px',
+                  padding: '14px 16px',
+                  marginBottom: '14px',
+                  marginLeft: '20px',
+                  marginRight: '20px',
                   position: 'relative',
                   overflow: 'hidden',
                 }}>
-                  <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)' }}></div>
-                  <div style={{ position: 'absolute', bottom: '-15px', left: '-15px', width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }}></div>
+                  <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)' }}></div>
+                  <div style={{ position: 'absolute', bottom: '-15px', left: '-15px', width: '45px', height: '45px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }}></div>
                   <p style={{
                     fontFamily: "'SE', sans-serif",
-                    fontSize: '32px',
+                    fontSize: '24px',
                     fontWeight: 700,
                     color: '#fff',
-                    marginBottom: '4px',
+                    marginBottom: '2px',
                     letterSpacing: '1px',
                   }}>خصم 25%</p>
                   <p style={{
                     fontFamily: "'SE', sans-serif",
-                    fontSize: '15px',
+                    fontSize: '13px',
                     fontWeight: 400,
                     color: 'rgba(255,255,255,0.85)',
                   }}>عند دفع كامل المبلغ</p>
