@@ -252,7 +252,7 @@ function App() {
           <Toaster />
           <ScrollToTop />
           <PageTitleUpdater />
-          <AmerChat />
+          {/* <AmerChat /> */}
           <Router />
         </TooltipProvider>
       </ThemeProvider>
